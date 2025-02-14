@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .bg-video {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -2;
+            opacity: .8;
+        }
+
+        .bg-video>video {
+
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        body::-webkit-scrollbar {
+            display: none;
+        }
+
+        .gradient-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 30%;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+            pointer-events: none;
+        }
+
+    </style>
+
+
+</head>
+
+<body >
+
+    <div class="wrapper gradient-overlay ">
+        
+        <div class="bg-video">
+            <video controls autoplay muted loop>
+                <source src="./video/test.mp4" type="video/mp4" />
+            </video>
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>

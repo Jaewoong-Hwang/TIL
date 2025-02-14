@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .parent{
+            background-color: royalblue;
+            width: 100%;
+            max-width: 1280px;
+            /* 최대크기를 제한     */
+            min-width: 380px;
+            /* 380까지 제한 */
+            /* table에서 스타일링을 제한해서 사용할 때 쓰면 좋다 */
+            border: 5px solid;
+            height: 300px;
+
+
+        }
+        .son{
+            background-color: orange;
+            /* height: 150px; */
+            width: 150px;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 
+    width   :   auto(기본값 : 최대너비를 가지려는 성질)
+    height  :   auto(기본값 : 최소높이를 가지려는 성질)
+    max-width   :   최대너비
+    min-width   :   최소너비
+    max-height  :   최대높이
+    min-height  :   최소너비
+    height  :   auto(기본값 : 최소높이를 가지려는 성질)
+    -->
+
+
+    <div class="parent">
+        <div class="son"></div>
+    </div>
+</body>
+</html>

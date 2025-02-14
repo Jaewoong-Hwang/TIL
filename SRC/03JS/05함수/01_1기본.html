@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+    <script>
+        //기본 형태(ECMA6 이전)
+        //2인자 o 리턴 o 
+        function sum1(n1,n1){
+            return n1+n2;
+        }
+        //2인자 o 리턴 x 
+        function sum2(n1,n1){
+            console.log('sum2', n1+n2);         //밖으로 리턴값이 없으면 안에서 더해줘야 함
+        }
+        //3인자 x 리턴 o 
+        function sum3(){
+           const n1=10;
+           const n2=20;
+           return n1+n2;
+        }
+        //4인자 x 리턴 x 
+        function sum4(){
+            const n1=10;
+            const n2=20;
+            console.log('sum4', n1+n2);
+            
+        }
+
+        const v1 = sum1(10,20);
+        console.log('v1',v1);
+
+        const v2 = sum2(100,200);
+        console.log('v2',v2);       //undefinded
+        
+        
+        const v3 = sum3();
+        console.log('v3',v3);       
+        
+        
+        // 함수는 재사용성, 유지보수 하는 데 필수적임
+       
+       
+        //기본 형태(ECMA6 이후)
+        const f1 = (n1,n2)=>{
+            return n1+n2;
+        };
+        const f2 = (n1,n2)=>{
+            console.log('f2',n1+n2);
+        };
+        const f3 = ()=>{
+            const n1=10;
+            const n2=20;
+            return n1+n2;
+        };
+        const f4 = ()=>{
+            const n1=10;
+            const n2=20;
+            console.log('f4',n1+n2);
+        };
+        
+        console.log("------------------------------");
+        const v_1 = f1(10,20); console.log('v_1',v_1)
+        const v_2 = f1(10,20); console.log('v_2',v_2)
+        const v_3 = f1(); console.log('v_3',v_3)
+        const v_4 = f1(); console.log('v_4',v_4)
+
+
+        //인자의 개수? 메모리 공간이 허용되는 만큼-->무제한
+        //반환값의 개수? 기본적으로 하나의 자료형만 리턴할 수 있음
+        
+        const f5 = (n1,n2,n3) =>{
+            return{
+                arg1: n1,
+                arg2: n2,
+                arg3: n3,
+                //기능
+                toString : function(){
+                    console.log(`이름 : ${this.arg}, 나이 :${this.arg2}, 주소 : ${this.arg3}`)
+                }
+            }
+        }
+
+        const v_5 = f5("홍길동",14,"대구",);
+        console.log('v_5',v_5);
+        v_5.toString();
+
+
+        //가변인자(...args)
+        const f6=(n1,n2,n3,...args)=>{    //배열함수를 쓸 수 있음. 가변인자를 통해 여러개의 복수 값을 받을 수 있음.
+            console.log("n1",n1);
+            console.log("n2",n2);
+            console.log("n3",n3);
+            console.log("args",args);
+        }
+        f6(100,200,300,400,500,600,700,800,900)
+
+        </script>
+</body>
+</html>

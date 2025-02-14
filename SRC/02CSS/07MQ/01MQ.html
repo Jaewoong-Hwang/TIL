@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        /* 데스크탑 width: 1024px 이상 */
+        /* 테블릿 width: 764px-1024px 이상 */
+        /* 모바일 width: 380px-768px 이상 */
+
+        div {
+            height: 150px;
+            background-color: orange;
+        }
+
+        /*
+            미디어 쿼리 장치 옵션
+            all : 모든 미디어 유형에 적용
+            print : 인쇄를 위한 미디어 타입
+            screen : 화면 기반의 미디어 타입(주로 컴퓨터, 테블릿)
+            speach : 음성 출력 장치를 위한 미디어 타입
+
+        */
+
+
+        /* 테블릿용 */
+        @media all and (max-width:1024px){
+            div{background-color: green;}
+        }
+
+        /* 모바일용 */
+        @media all and (max-width:480px){
+            div{background-color: royalblue;}
+        }
+
+    </style>
+</head>
+
+<body>
+    <div></div>
+</body>
+
+</html>

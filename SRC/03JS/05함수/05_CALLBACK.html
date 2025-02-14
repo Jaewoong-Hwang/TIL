@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+
+    <script>
+        //콜백함수(Call Back)
+        //함수를 호출하는 시점이 바뀌어진 형태의 함수
+        //기존방식 : 사용자(개발자)가 함수를 직접정의 ->정의된 함수를 호출(call)하여 결과를 반환 받는 방식
+        //CallBack : 콜백함수에 인자로 로직이담긴 함수를(함수주소)를 전달하여 콜백함수로부터 처리된 결과를 반환 받는 방식
+
+        //일반함수
+
+        // function func(n1,n2){
+        //     console.log("func(n1,n2)...call");
+        //     return n1+n2;
+        // }
+        // // const v1 = func(10,20); //call-by-value //값(value)전달을 통한 함수 직접 실행(call)
+        // // console.log("v1",v1);
+
+        //콜백함수
+        // function callBackFunc(n1,n1,logic){
+        //     console.log('callBackFunc...start...');
+        //     const v= logic (n1,n2);
+        //     console.log("v",v);
+        //     console.log('callBackFunc...start...');
+        // }
+        // callBackFunc(100,200,func);
+
+
+ //--------------------------------------------------------       
+        [100, 200, 300, 400].map(() => { })
+
+        function customMap(array, func) {
+            let tmp = [];
+            for (let i = 0; i < array.length; i++) {
+                const item = array[i];
+                const reNewItem = func(item);
+                tmp.push(reNewItem);
+            }
+            return tmp;
+        }
+        arr = [
+            { id: '1111', name: '홍길동', age: 30, addr: "대구" },
+            { id: '2222', name: '티모', age: 55, addr: "인천" },
+            { id: '3333', name: '렝가', age: 44, addr: "울산" },
+            { id: '4444', name: '다리우스', age: 77, addr: "구미" },
+        ];
+        const r_val = customMap(arr, (item) => { return { id: item.id, name: item.name } });
+        console.log("r_val", r_val);
+
+        const r_val2 = customMap(arr, (item) => { return { name: item.name, addr: item.addr } });
+        console.log("r_val2", r_val2);
+
+
+
+//------------------------------------------------------------
+        //CALLBACK+CLOSUER
+        function casllBackFunc3(array) {
+            let tmp = []; //state
+            //inner function
+            function map(func) {
+                for (let i = 0; i < array.length; i++) {
+                    const item = array[i];
+                    const reNewItem = func(item);
+                    tmp.push(reNewItem);
+                }
+                return tmp;
+            }
+            return {
+                map: map
+            }
+        }
+
+        const r_val3 = casllBackFunc3(arr).map((item)=>{return {'아이디':item.id,'나이':item.age}});
+        console.log('r_val3', r_val3)
+
+//------------------------------------------------------------------
+        // 정렬
+        //Sort(선택정렬)
+        function callback3(array, func) {
+            let tmp = 0; //임시저장 
+            for (i = 0; i < array.length - 1; i++) {
+
+                for (j = i + 1; j < array.length; j++) {
+                    if (func(array[j], array[i]) <= 0) {
+                        tmp = array[i];
+                        array[i] = array[j];
+                        array[j] = tmp;
+                    }
+                }
+            }
+        }
+        arr2 = [10, 2, 4, 5, 1, 3, 7, 6]
+
+        callback3(arr2, (a, b) => { return a- b })
+        console.log(arr2)
+
+
+        function callback4(array) {
+            let tmp = 0; //임시저장 
+
+            function sort(func) {
+                for (i = 0; i < array.length - 1; i++) {
+                    for (j = i + 1; j < array.length; j++) {
+                        if (func(array[j], array[i]) <= 0) {
+                            tmp = array[i];
+                            array[i] = array[j];
+                            array[j] = tmp;
+                        }
+                    }
+                }
+            }
+            return { sort: sort }
+        }
+        arr3 = [4, 2, 12, 5, 4, 7]
+        callback4(arr3).sort((a, b) => a - b)
+        console.log(arr3)
+
+        // 필터 만들기(callback + closure)
+        arr4=[2,6,8,4,7,5,9]
+       
+        
+
+       
+    </script>
+</body>
+
+</html>

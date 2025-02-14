@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <style>
+        .parent {
+            width: 1000px;
+
+            height: 1000px;
+            border: 1px solid;
+        }
+
+        .parent>.son {
+            width: 150px;
+            height: 150px;
+            border: 1px solid;
+            background-color: orange;
+            transition: 1s;
+        }
+
+        .parent:hover .son {
+            /* 위치이동 */
+            /* transform: translate(200px,200px); */
+            /* transform: translate(400px 400px); */
+            /* 크기조정 */
+            /* transform: scale(2, 5); */
+            /* transform: scale(1.5); */
+            /* 회전 */
+            /* transform: rotate(360deg); */
+            /* 기울이기 */
+            /* transform: skew(360deg); */
+            /* 동시에 적용 */
+            transform: translate(300px,300px) rotate(360deg) scale(1.5);
+        }
+
+        /* 위치이동 */
+    </style>
+</head>
+
+<body>
+    <!-- transform은 크기를 변형 시켜줌 -->
+
+
+    <div class="parent">
+        <div class="son"></div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        *{box-sizing: border-box;}
+        body{
+            margin : 0; padding : 0;
+        }
+        .wrapper{
+            height:3000px;border : 5px solid red;
+        }
+        
+        .bg{
+
+            position:absolute;
+            left:0;
+            top:500px;
+
+            /* width:auto; */
+            width : 100%;
+            height : 420px;
+            border : 1px solid;
+            /* 배경이미지 지정 */
+            background-image: url('https://cdn.pixabay.com/photo/2018/08/24/23/33/field-3629120_1280.jpg');
+            /* 이미지 사이즈 */
+            /* auto: 이미지 크기대로 지정 ,cover:전체 채우기, contain:이미지 비율을 유지하면서 채우기 */
+            background-size:cover;
+            /* 반복처리 */
+            background-repeat: no-repeat;
+            /* 배치 */
+            /* 스크롤이동시에 이미지를 고정 */
+            background-attachment: fixed;
+        }   
+    </style>
+</head>
+<body>
+
+    <div class="wrapper">
+        <div class="bg"></div>
+    </div>
+    
+</body>
+</html>

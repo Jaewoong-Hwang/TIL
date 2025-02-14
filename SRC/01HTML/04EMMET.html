@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- 자식요소 선택: '>' -->
+    <!-- div>ul>li -->
+
+    <div>
+        <ul>
+            <li></li>
+        </ul>
+    </div>
+
+    <!-- div>p>ul>li -->
+
+    <div>
+        <p>
+        <ul>
+            <li></li>
+        </ul>
+        </p>
+    </div>
+
+    <!-- 형제노드: '+' -->
+    <!-- div>ul+ol -->
+
+    <div>
+        <ul></ul>
+        <ol></ol>
+    </div>
+
+    <!-- div>p+div+span -->
+    <div>
+        <p></p>
+        <div></div>
+        <span></span>
+    </div>
+
+    <!-- div>ul>li>a+ul -->
+    <div>
+        <ul>
+            <li>
+                <a href=""></a>
+                <ul></ul>
+            </li>
+        </ul>
+    </div>
+
+    <!-- 상위태그로 이동 : '^' -->
+    <!-- div>ul>li^p -->
+    <div>
+        <ul>
+            <li></li>
+        </ul>
+        <p></p>
+    </div>
+
+    <!-- 메뉴구조 만들기 -->
+    <!-- div>ul>li>a{MAMILMENU $}>ul>li*4{SUBMENU$} -->
+    <div>
+        <ul>
+            <li>
+                <a href="">MAMILMENU 1
+                    <ul>
+                        <il>SUBMENU1</il>
+                        <il>SUBMENU2</il>
+                        <il>SUBMENU3</il>
+                        <il>SUBMENU4</il>
+                    </ul>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- 메뉴구조 - 여러개 -->
+    <!-- div>ul>li*5>a{MAMILMENU $}>ul>li*4{SUBMENU $} -->
+    <div>
+        <ul>    
+            <li>
+                <a href="">MAMILMENU 1
+                    <ul>
+                        <il>SUBMENU 1</il>
+                        <il>SUBMENU 2</il>
+                        <il>SUBMENU 3</il>
+                        <il>SUBMENU 4</il>
+                    </ul>
+                </a>
+            </li>
+            <li>
+                <a href="">MAMILMENU 2
+                    <ul>
+                        <il>SUBMENU 1</il>
+                        <il>SUBMENU 2</il>
+                        <il>SUBMENU 3</il>
+                        <il>SUBMENU 4</il>
+                    </ul>
+                </a>
+            </li>
+            <li>
+                <a href="">MAMILMENU 3
+                    <ul>
+                        <il>SUBMENU 1</il>
+                        <il>SUBMENU 2</il>
+                        <il>SUBMENU 3</il>
+                        <il>SUBMENU 4</il>
+                    </ul>
+                </a>
+            </li>
+            <li>
+                <a href="">MAMILMENU 4
+                    <ul>
+                        <il>SUBMENU 1</il>
+                        <il>SUBMENU 2</il>
+                        <il>SUBMENU 3</il>
+                        <il>SUBMENU 4</il>
+                    </ul>
+                </a>
+            </li>
+            <li>
+                <a href="">MAINLMENU 5
+                    <ul>
+                        <il>SUBMENU 1</il>
+                        <il>SUBMENU 2</il>
+                        <il>SUBMENU 3</il>
+                        <il>SUBMENU 4</il>
+                    </ul>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+<!-- 클래스 선택자: "." -->
+<!-- 에밋으로는 .c1 -->
+ <div class="c1"></div>
+<div class="abc"></div>
+
+
+<!-- ID 선택자: "#" -->
+<!-- 아이디 선택자는 구별되는 문서 하나만 써야함 나중에 리엑트에서 문제됨 -->
+<!-- 에밋 #Wrapper -->
+<div id="Wrapper"></div>
+
+
+<!-- attr 추가 (속성추가) -->
+<!-- div>ol[type='I']>li*4{MENU_$} -->
+<div>
+    <ol type="I">
+        <li>MENU_1</li>
+        <li>MENU_2</li>
+        <li>MENU_3</li>
+        <li>MENU_4</li>
+    </ol>
+</div>
+
+<!-- 시작번호 선택 -->
+ <!-- div>ul>li*8{TEXT $@%} -->
+ <div>
+    <ul>
+        <li>TEXT 1%</li>
+        <li>TEXT 2%</li>
+        <li>TEXT 3%</li>
+        <li>TEXT 4%</li>
+        <li>TEXT 5%</li>
+        <li>TEXT 6%</li>
+        <li>TEXT 7%</li>
+        <li>TEXT 8%</li>
+    </ul>
+ </div>
+
+
+</body>
+
+
+</html>

@@ -1,0 +1,29 @@
+SourceTree
+깃크라켄
+
+
+문제1>
+TEST_2 폴더에 Source Tree 연결
+Commit 적용 하기 aaa.txt 파일생성후 V0.0 master commit
+dev branch 생성 후 dev.txt 파일 생성 후 "V0.1 dev init" Commit
+feature/func1 branch 생성후 func1.txt 파일생헝 후 "V0.2 func2.txt add" Commit
+dev branch 로 이동
+feature/func2 branch 생헝후 func2.txt 파일생성 후 "V0.2 func2.txt add" Commit
+feature/func1 branch 를 dev  에 병합
+feature/func2 branch 를 dev 에 병합
+master 에 dev 병합
+발생하는 충돌이 있을시 적절하게 해결후 Commit merge할 rkt
+
+문제2>
+SOURCE_TREE GITHUB REPO 생성(Readme생성체크 해서 main브랜치 생성하기)
+SourceTree 로 Clone 하기
+developer branch 생성 후 파일추가(dev.txt) 후 V0.0 Dev's init commit
+feature/board branch 생성 후 board.txt 파일 생성하고 V0.1 feature/board init commit
+feature/auth branch 생성 후 auth.txt 파일 생성하고 V0.1 feature/auth init commit
+developer branch 로 이동 후 Readme.md 수정(V0.1 RebaseMerge) 한 다음 commit
+feature/board branch 를 developer branch로 rebase 처리(developer 보다 feature/board branch가 위에 있어야함)
+developer branch 에서 rebase 된 feature/board branch 를 병합
+feature/auth branch 를 developer branch로 rebase 처리(developer 보다 feature/board branch가 위에 있어야함)
+developer branch 에서 rebase 된 feature/auth branch를 병합
+developer branch 를 main 으로 병합
+수정사항 전부를 github로 push

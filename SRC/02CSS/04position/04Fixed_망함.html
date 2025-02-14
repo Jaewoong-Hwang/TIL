@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation Menu</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            height: 4000px;
+            margin: 0;
+        }
+
+        .layout-padding-rem {
+            padding: 0 3rem;
+        }
+        .layout-fixed-nav{
+            position: fixed;
+            left: 0; right: 0;
+            margin: 0 auto;
+            border: 5px solid black;
+        }
+
+        .wrapper {}
+
+        /* Header */
+        .wrapper>header {}
+
+        .wrapper>header>.top-header {}
+
+        .wrapper>header>nav {
+            height: 50px;
+            background-color: green;
+        }
+
+        /* Main Menu */
+        .wrapper>header>nav>ul.mainmenu {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+        }
+
+        .wrapper>header>nav>ul.mainmenu>li {
+            background-color: orange;
+            height: 100%;
+            line-height: 50px;
+            padding: 0px;
+            position: relative;
+        }
+
+        .wrapper>header>nav>ul.mainmenu>li>a {
+            border: 1px solid white;
+            display: block;
+            padding: 0 20px;
+        }
+
+        /* Submenu */
+        .wrapper>header>nav>ul.mainmenu>li>ul.submenu {
+            background-color: royalblue;
+            position: absolute;
+            width: 100%;
+            left: 0;
+            top: 50px; /* 하위 메뉴가 메인 메뉴 바로 아래로 위치하도록 조정 */
+            display: none;
+        }
+
+        .wrapper>header>nav>ul.mainmenu>li>ul.submenu>li {
+            border: 1px solid red;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        .wrapper>header>nav>ul.mainmenu>li>ul.submenu>li>a {
+            display: block;
+            color: white;
+        }
+
+        /* Hover Event */
+        .wrapper>header>nav>ul.mainmenu>li:hover>ul.submenu {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+            <div class="top-header"></div>
+            <nav class="layout-padding-rem">
+                <ul class="mainmenu">
+                    <li>
+                        <a href="#">1_mainmenu</a>
+                        <ul class="submenu">
+                            <li><a href="#">1_submenu</a></li>
+                            <li><a href="#">2_submenu</a></li>
+                            <li><a href="#">3_submenu</a></li>
+                            <li><a href="#">4_submenu</a></li>
+                            <li><a href="#">5_submenu</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">2_mainmenu</a>
+                        <ul class="submenu">
+                            <li><a href="#">1_submenu</a></li>
+                            <li><a href="#">2_submenu</a></li>
+                            <li><a href="#">3_submenu</a></li>
+                            <li><a href="#">4_submenu</a></li>
+                            <li><a href="#">5_submenu</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">3_mainmenu</a>
+                        <ul class="submenu">
+                            <li><a href="#">1_submenu</a></li>
+                            <li><a href="#">2_submenu</a></li>
+                            <li><a href="#">3_submenu</a></li>
+                            <li><a href="#">4_submenu</a></li>
+                            <li><a href="#">5_submenu</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">4_mainmenu</a>
+                        <ul class="submenu">
+                            <li><a href="#">1_submenu</a></li>
+                            <li><a href="#">2_submenu</a></li>
+                            <li><a href="#">3_submenu</a></li>
+                            <li><a href="#">4_submenu</a></li>
+                            <li><a href="#">5_submenu</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <section class="section-01"></section>
+            <section class="section-02"></section>
+            <section class="section-03"></section>
+            <section class="section-04"></section>
+        </main>
+        <footer></footer>
+    </div>
+</body>
+
+</html>

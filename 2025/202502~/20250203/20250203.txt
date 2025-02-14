@@ -1,0 +1,139 @@
+
+------------------------------
+/* 테두리 선종류 확인 */
+border-top: 2px solid red;
+        border-right: 3px dashed orange;
+        border-bottom: 4px dotted blue;
+        border-left: 5px double green;
+----------------------------------------
+ /* 테두리 깍기 */
+    .d2{
+        /* border-radius: 15px; */
+        /* border-radius: 15px 0px;  왼쪽 위, 오른쪽 아래 */
+     
+       /* border-radius: 15px 25px 35px; 대각선으로 마주보는 모서리에 값이 비어있다면, 이미 들어간 값이 들어감
+----------------------------------------
+
+.d4{
+        position: absolute;
+    }
+    .d4::before{       ---------> 가상 선택자
+        content: "";
+        position: absolute;
+        left: -1px;
+        top: -1px;
+        width: 0px;
+        height: 0px;
+        border: 1px solid red;
+
+        border-top: 25px solid white;
+        border-right: 25px solid green;
+        border-bottom: 25px solid green;
+        border-left: 25px solid white;
+        border-radius: 0px 0px 2px 0px;
+--------------------------------------------------------
+Box-Overflow
+.parent>.child ==<div class="parent">
+    			<div class="child"></div>
+		</div>
+
+ .parent{
+        width: 300px; height: 300px;
+        background-color: orange;
+        /* overflow: hidden;   /* 자식이 부모크기보다 클 때 초과한 너비를 숨겨줌 */
+        /* overflow: scroll;  스크롤을 만들어줘서 볼 수 있음*/
+        /* overflow: visible; 오버플로우 되더라도 그대로 보여줌 기본값 */
+        /* overflow: auto; 알아서 스크롤을 만들어줌 */
+        
+    }
+
+    .child{
+        width: 450px; height: 150px;  
+        background-color: royalblue;
+    }
+
+
+--------------------------------------------------------
+Box-sizing
+
+*{
+    box-sizing: border-box;
+}
+이 코드를 기본적으로넣어줘야 박스 사이즈를 제대로 넣을 수 있음
+
+--------------------------------------------------------
+Selector
+
+
+/* 전체선택자 */
+*{margin: 20px;}
+/* 요소선택자 */
+div{width: 150px; height: 150px; border: 1px solid;}
+p{width: 100px; height: 100px; border: 1px solid;}
+
+
+/* id 선택자 */
+/* id 는 유일한 값을 가지도록 해야함 */
+#id_01{
+    background-color: orange;
+}
+
+
+/*class 선택자  */
+.group{
+    background-color: royalblue;
+}
+
+
+/* 그룹 선택자 */
+#id_01,
+.group{
+border: 5px solid red;
+}
+
+
+<body>
+    
+
+
+    <div class="group"></div>
+    <div id="id_01"></div>
+    <div></div>
+    <div>
+
+        <p class="group"></p>
+        <div clas="group"></div>
+    </div>
+
+    
+</body>
+
+
+--------------------------------
+/* 자식선택자 > */
+
+.parent>div{
+    border: 1px solid red; 
+    margin: 10px;
+}
+.parent>p{
+    background-color: orange;
+}
+.parent>.child{
+    background-color: green;
+
+}
+
+
+/* 자손선택자 공백 */
+.parent p{
+    font-size: 2rem;
+}
+.parent div{
+
+}
+
+--------------------------------
+
+
+

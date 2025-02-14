@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Web Layout</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f8f8f8;
+        }
+
+        /* Top Header */
+        .top-header {
+            background-color: #e0e0e0;
+            padding: 20px;
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        /* Navigation Bar */
+        .wrapper > header {
+            background-color: black;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .nav-logo {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-menu li {
+            margin: 0 15px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .nav-menu li:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .wrapper > header {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .nav-menu {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 10px;
+            }
+
+            .nav-menu li {
+                margin: 10px 0;
+            }
+        }
+
+        /* Card Boxes */
+        .card-boxes {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .card-box {
+            background: white;
+            padding: 20px;
+            width: 300px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Media Content */
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .media-item {
+            display: flex;
+            background: white;
+            width: 600px;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .media-img {
+            width: 120px;
+            height: 120px;
+            background: gray;
+            border-radius: 10px;
+            margin-right: 15px;
+        }
+
+        .media-content {
+            flex: 1;
+        }
+
+        /* Footer */
+        .footer {
+            background: black;
+            color: white;
+            display: flex;
+            justify-content: space-around;
+            padding: 20px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="top-header">1. 네비게이션 바 레이아웃</div>
+        <header>
+            <div class="nav-logo">Logo</div>
+            <ul class="nav-menu">
+                <li>Home</li>
+                <li>About</li>
+                <li>Services</li>
+                <li>Contact</li>
+            </ul>
+        </header>
+        <main>
+            <section>
+                <h2>Card Layout</h2>
+                <div class="card-boxes">
+                    <div class="card-box">
+                        <h3>Product 1</h3>
+                        <p>상품 설명이 들어갑니다.</p>
+                    </div>
+                    <div class="card-box">
+                        <h3>Product 2</h3>
+                        <p>반응형 카드 레이아웃입니다.</p>
+                    </div>
+                    <div class="card-box">
+                        <h3>Product 3</h3>
+                        <p>유동적인 디자인을 제공합니다.</p>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <h2>Media Content</h2>
+                <div class="container">
+                    <div class="media-item">
+                        <div class="media-img"></div>
+                        <div class="media-content">
+                            <h3>뉴스 제목</h3>
+                            <p>이미지와 텍스트가 나란히 배치됩니다.</p>
+                        </div>
+                    </div>
+                    <div class="media-item">
+                        <div class="media-img"></div>
+                        <div class="media-content">
+                            <h3>블로그 포스트</h3>
+                            <p>모바일에서는 세로로 배치됩니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <div class="footer">
+                <div class="footer-section">
+                    <h3>About Us</h3>
+                    <p>회사 소개 내용이 들어갑니다.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>연락처 정보가 들어갑니다.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <p>소셜 미디어 링크가 들어갑니다.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

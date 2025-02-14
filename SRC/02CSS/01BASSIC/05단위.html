@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        div {
+            height: 100px;
+            margin-bottom: 10px;
+            background-color: orange;
+
+        }
+
+        body {
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- px : 고정크기 지정 -->
+    <div style="width: 700px;"></div>
+    <div style="width: 700px;">
+        <p style="width: 900px;height: 50px;background-color: royalblue;"></p>
+    </div>
+    <!-- % : 가변크기, 상위태그(부모태그)를 기준으로 %만큼 크기 지정 -->
+    <div style="width: 50%;">
+        <p style="width: 75%;height: 50px;background-color: royalblue;"></p>
+    </div>
+    <!-- vw,vh : 가변크기, 뷰포트를 기준으로 백분율만큼 크기 지정-->
+    <div style="width: 50%;">
+        <p style="width: 75vw;height: 50px;background-color: royalblue;"></p>
+    </div>
+
+    <div style="height: 100vh;">TEST 뷰포트 영역임</div>
+  
+    <!-- em,rem(글자크기 지정시 확인) -->
+
+</body>
+
+</html>

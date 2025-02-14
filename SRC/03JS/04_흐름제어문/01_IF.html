@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="box" style="width:200px;height:100px;background-color: orange;"></div>
+    <script>
+        const boxEl = document.querySelector('.box');
+        // if(조건식){종속문장}
+        let box_style = prompt("기본스타일을 입력하세요\n';'단위로 '가로/세로'width,height,color,background-color 입력하세요");
+        const style_arr = box_style.split(';');
+        if(style_arr[0]==='가로')
+        {
+            console.log('가로스타일')
+            boxEl.setAttribute('style',`width:${style_arr[1]};height:${style_arr[2]};color:${style_arr[3]};background-color:${style_arr[4]}`);
+            // document.write(`<h1>${number} 는 짝수입니다.</h1>`);//true(참)인 경우 실행할 코드
+        }
+        else
+        {
+            console.log('세로스타일')
+            boxEl.setAttribute('style',`width:${style_arr[2]};height:${style_arr[1]};color:${style_arr[3]};background-color:${style_arr[4]}`);
+            // document.write(`<h1>${number} 는 홀수입니다.</h1>`);//false(거짓)인 경우 실행할 코드
+        }
+
+    </script>
+</body>
+</html>

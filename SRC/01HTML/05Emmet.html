@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- 자식요소 선택 : '>' -->
+
+    <!-- div>ul>li -->
+     <div>
+        <ul>
+            <li></li>
+        </ul>
+     </div>
+    <!-- div>p>ul>li -->
+     <div>
+        <p>
+            <ul>
+                <li></li>
+            </ul>
+        </p>
+     </div>
+
+    <!-- 형제노드 : '+' -->
+    <!-- div>ul+ol -->
+    <div>
+        <ul></ul>
+        <ol></ol>
+    </div>
+    <!-- div>p+div+span -->
+    <div>
+        <p></p>
+        <div></div>
+        <span></span>
+    </div>
+
+    <!-- div>ul>li>a+ul -->
+    <div>
+        <ul>
+            <li>
+                <a href=""></a>
+                <ul></ul>
+            </li>
+        </ul>
+    </div>
+
+    <!-- 상위태그로 이동 : '^' -->
+    <!-- div>ul>li^p -->
+    <div>
+        <ul>
+            <li></li>
+        </ul>
+        <p></p>
+    </div>
+
+    <!-- 메뉴구조 만들기 -->
+    <!-- div>ul>li>a{MAINMENU $}>ul>li*4{SUBMENU$} -->
+    <div>
+        <ul>
+            <li>
+                <a href="">MAINMENU 1
+                    <ul>
+                        <li>SUBMENU1</li>
+                        <li>SUBMENU2</li>
+                        <li>SUBMENU3</li>
+                        <li>SUBMENU4</li>
+                    </ul>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- 메뉴구조 - 여러개 -->
+    <!-- div>ul>li*5>a{MAINMENU $}>ul>li*4{SUBMENU $} -->
+    <div>
+        <ul>
+            <li>
+                <a href="">MAINMENU 1
+                    <ul>
+                        <li>SUBMENU 1</li>
+                        <li>SUBMENU 2</li>
+                        <li>SUBMENU 3</li>
+                        <li>SUBMENU 4</li>
+                    </ul>
+                </a>
+            </li>
+            <li>
+                <a href="">MAINMENU 2
+                    <ul>
+                        <li>SUBMENU 1</li>
+                        <li>SUBMENU 2</li>
+                        <li>SUBMENU 3</li>
+                        <li>SUBMENU 4</li>
+                    </ul>
+                </a>
+            </li>
+            <li>
+                <a href="">MAINMENU 3
+                    <ul>
+                        <li>SUBMENU 1</li>
+                        <li>SUBMENU 2</li>
+                        <li>SUBMENU 3</li>
+                        <li>SUBMENU 4</li>
+                    </ul>
+                </a>
+            </li>
+            <li>
+                <a href="">MAINMENU 4
+                    <ul>
+                        <li>SUBMENU 1</li>
+                        <li>SUBMENU 2</li>
+                        <li>SUBMENU 3</li>
+                        <li>SUBMENU 4</li>
+                    </ul>
+                </a>
+            </li>
+            <li>
+                <a href="">MAINMENU 5
+                    <ul>
+                        <li>SUBMENU 1</li>
+                        <li>SUBMENU 2</li>
+                        <li>SUBMENU 3</li>
+                        <li>SUBMENU 4</li>
+                    </ul>
+                </a>
+            </li>
+        </ul>
+    </div>
+       
+    <!-- 클래스 선택자 : "."  -->
+     <!-- .c1 -->
+    <div class="c1"></div>
+    <!-- .abc -->
+    <div class="abc"></div>
+
+    <!-- ID 선택자 : "#"-->
+    <!-- #wrapper -->
+    <div id="wrapper"></div>
+
+    <!-- attr 추가 -->
+    <!-- div>ol[type='I' data-name='비타500']>li*4{MENU_$} -->
+
+    <!-- 시작번호 선택 -->
+     div>ul>li*8{TEXT $@5}
+
+    <!-- 문서 전체 구조 Emmet 만들기 -->
+
+    <!-- .wrapper>header>.top-header+nav^main>section*3^footer -->
+    <div class="wrapper">
+        <header>
+            <div class="top-header"></div>
+            <nav>
+                <!-- ul.main-menu>li*4>a{$_mainmenu}+ul>li*5>a{$_submenu} -->
+            </nav>
+        </header>
+        <main>
+            <section></section>
+            <section></section>
+            <section></section>
+        </main>
+        <footer></footer>
+    </div>
+
+</body>
+</html>

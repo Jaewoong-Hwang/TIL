@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            box-sizing: border;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .wrapper {
+            height: 3000px;
+            border: 5px solid red;
+        }
+
+        .bg {
+
+            position: absolute;
+            left: 0;
+            top: 500px;
+
+            /* width:auto; */
+            width: 100vw;
+            height: 400px;
+            border: 1px solid;
+            /* 배경이미지 */
+            background-image: url('https://images.pexels.com/photos/28778307/pexels-photo-28778307.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+            /* 이미지 사이즈 */
+            /* auto: 이미지 크기대로 지정, cover: 전체 채우기, contain: 이미지 비율을 유지하면서 채우기*/
+            background-size: cover;
+            /* background-size: cover; */
+            /* 반복처리 (원래 이미지는 오토로, 1280px 이 안되면 반복됨)*/
+            background-repeat: no-repeat;
+            /* 배치 */
+            /* 스크롤이동시에 이미지를 고정 */
+            background-attachment: fixed;
+
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <div class="bg"></div>
+    </div>
+</body>
+
+</html>

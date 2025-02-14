@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArtsHub</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .content-container {
+            display: flex;
+            width: 100%;
+            max-width: 1920px;
+            justify-content: space-between;
+        }
+        .main-content {
+            flex: 3;
+            padding: 20px;
+        }
+        .funding-ranking {
+            flex: 1;
+            background: #f1f1f1;
+            padding: 20px;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: fixed;
+            right: 0;
+            top: 100px;
+            width: 300px;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: white;
+            width: 100%;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+        .categories, .experts {
+            padding: 20px;
+        }
+        .expert-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 40px;
+        }
+        .expert-category {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            flex: 1;
+            min-width: 300px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">ArtsHub</div>
+        <nav>
+            <ul>
+                <li><a href="#">Funding</a></li>
+                <li><a href="#">Community</a></li>
+                <li><a href="#">Project Recruitment</a></li>
+            </ul>
+        </nav>
+        <div class="search-bar">
+            <input type="text" placeholder="Search in site">
+            <button>🔍</button>
+        </div>
+        <div class="auth-buttons">
+            <button>로그인</button>
+            <button>회원가입</button>
+            <button class="primary">프로젝트 만들기</button>
+        </div>
+    </header>
+    
+    <div class="content-container">
+        <div class="main-content">
+            <section class="categories">
+                <h2>카테고리</h2>
+                <div class="category-list">
+                    <div class="category">재즈</div>
+                    <div class="category">무용</div>
+                    <div class="category">뮤지컬</div>
+                    <div class="category">연극</div>
+                    <div class="category">클래식</div>
+                    <div class="category">국악</div>
+                    <div class="category">어린이</div>
+                    <div class="category">밴드</div>
+                    <div class="category">아방가르드</div>
+                    <div class="category">오페라</div>
+                </div>
+            </section>
+            
+            <section class="experts">
+                <h2>이달의 전문가</h2>
+                <div class="expert-list">
+                    <div class="expert-category">
+                        <h3>무대 디자인</h3>
+                        <div class="expert">🥇 StageCraft Studio - 1,950,000,000원</div>
+                        <div class="expert">🥈 무대의 정석 - 1,200,450,000원</div>
+                        <div class="expert">🥉 Theater Vision - 1,045,800,000원</div>
+                    </div>
+                    <div class="expert-category">
+                        <h3>작곡</h3>
+                        <div class="expert">🥇 Symphony Works - 1,950,000,000원</div>
+                        <div class="expert">🥈 MusiLab Studio - 1,700,230,000원</div>
+                        <div class="expert">🥉 FilmScore - 1,580,400,000원</div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        
+        <aside class="funding-ranking">
+            <h2>펀딩 실시간 랭킹</h2>
+            <ol>
+                <li>1. [만화 원작] 뉴 스쿨 오페레 <strong>신청</strong> - 펀딩 92% 달성</li>
+                <li>2. [최초 공개] 탄생뮤지컬 <strong>RE:WIND</strong> - 펀딩 89% 달성</li>
+                <li>3. [한정 이벤트] <strong>그림 속으로</strong> - 펀딩 87% 달성</li>
+            </ol>
+        </aside>
+    </div>
+    
+    <footer>
+        <p>아츠허브 고객센터 | 채팅 상담하기 | 문의 올리기</p>
+        <p>© 2025 ArtsHub Co., Ltd.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        //호이스팅(HOISTING)
+        // 변수와 함수의 선언이 코드 실행전에 메몸리에 다라 저장되는 현상
+        // function 예약이 사용시 호이스팅 처리됨
+        // var 예약이 사용시 호이스팅 처리됨
+       
+       //변수 호이스팅 확인             //화살표 함수, let 은 호이스팅이 안됨
+        // console.log('a',a);
+        // var a= 10;
+        // console.log('a',a);
+        
+        // console.log('b',b);
+        // let b= 20;
+        // console.log('b',b);
+
+        //함수 호이스팅 확인        
+        // hello1();                        //절차와 상관없이 호이스팅 됨
+        // function hello1(){
+        //     console.log('hello world');
+        // }
+
+        // hello2();
+        // const hello2 =() => {console.log("hello2 world");}
+
+
+        //var변수는 가급적 사용은 지양(사용하지 않는게 좋음)
+        //function은 목적에 따라 사용여부 결정(처음에 만든 효과를 주고싶으면 사용)
+        //function은 기본적으로 이름부여도 가능하다
+        // 화살표함수()=>{} 는 기본적으로 익명함수로 처리된다 
+
+
+        //렉시컬 스코프(화살표 함수) 확인 - this
+
+        // const f1= ()=>{
+        //     console.log('f1...', this); //상위스코프(window객체)의 'this' 를 가져옴
+        // }
+        // f1();   //window 객체가 나옴  : DOM 의 상위 객체임  
+    
+        // 렉시컬 스코프(object내의 기능에서의) 확인 -this
+        const person ={
+            name:"홍길동",
+            age: 15,
+            addr : "대구",
+            getName : function(){
+                console.log(this);
+            },
+            getAge: ()=>{
+                console.log(this);    //화살표함수에서 객체를 보면 기본적으로 window 객체
+            }
+        }
+        console.log('person',person);
+        person.getName();
+        person.getAge();  //undefined
+    
+    
+    </script>
+</body>
+</html>

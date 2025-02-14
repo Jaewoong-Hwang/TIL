@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //스코프(SCOPE)란
+        // 변수나 함수가 접근할 수 있는 범위
+        // 전역스코프(Global Scope)와 지역 스코프(Local Scope)로 구별
+        // 
+        // 전역스코프: 모든 지역에서 접근이 가능
+
+        // 지역스코프: 특장 영역({}) 에서만 접근 가능
+        // -함수스코프: 함수 내에서 선언된 변수는 해당 함수내에서만 접근 가능
+        //-블록스코프: 블록 내부에서만 접근 가능 (ex, if, for, while, object..)(let,const)
+        // -렉시컬(Lexical)스코프 :  변수를 선언한 위치에 따라서 스코프 결정
+        
+        
+        /////////////////////////
+        // 전역 스코프
+        // var g_val="전역변수 확인!";
+
+        // function a(){
+        //     console.log('a func()..',g_val);
+        // }
+        // a();
+        // if(true){
+        //     console.log('if..',g_val);
+
+        // }
+        // console.log({key1:g_va1});
+
+        /////////////////////////
+        //함수 스코프 내의 지역변수
+        // /////////////////////////
+        // f1();
+        // f2();
+        // function f1(){
+        //     var f1_v = 'f1_val';
+        // }   console.log('f1_v',f1_v)
+        // function f2(){
+        //     var f2_v='f2_val';
+        // }   console.log('f2_v',f2_v)
+        
+        // console.log(f1_v);   //함수스코프 내에 있는 지역변수라 출력이 안됨
+
+
+        //////////////////////////////
+        //블록 스코프 내의 지역변수  ---let,const(상수)
+        ///////////////////////////////
+
+        if(true){
+            let v_1 = "블록 내에 사용되는 지역변수"
+            console.log('v_1',v_1);
+            var v_2 = "블록 내에 사용한 var 변수"
+        }    
+        console.log('v_2',v_2);             
+        console.log('v_1',v_1);              
+
+        </script>
+</body>
+</html>

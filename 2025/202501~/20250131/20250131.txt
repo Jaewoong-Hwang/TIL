@@ -1,0 +1,79 @@
+정규표현식
+https://hamait.tistory.com/342
+
+정규표현식 패스워드
+^(?=.*[a-zA-Z])(?=.*[0-9]).{8,25}$
+
+        <!-- <정규표현식 패스워드> -->
+<!-- ^(?=.*[a-zA-Z])(?=.*[0-9]).{8,25}$
+^  :   시작부분
+$  :   끝
+() :   하나의식(묶는단위) 
+{8.25}  :   길이(8자이상 25자 이하) 
+?=  :   전방탐색
+.   :   모든문자(길이1)1개의 문자와 일치한다
+*   :   모든문자(길이 재한 없음)0개 이상의 문자를 포함한다
+[a-zA-Z]  :     알파벳 a-z or A-Z 까지 탐색\
+[0-9]   :   숫자 0-9 까지 탐색  
+-->
+
+
+required	: null 을 채워줘야 넘어갈 수 있음
+readonly : 입력란에 입력 불가
+
+
+
+<div data-username="user123">계정명</div>
+<div data-address="대구">주소</div>
+<div data-phone="01022223333">연락처</div>
+
+
+data- 에는 민감한 정보들을 넣으면 안됨
+사용자들에게 노출되는 정보들이기 때문에
+
+<script>
+는 제일 끝에 넣어야함
+    
+</script>
+
+
+<script>
+    const El1 = document.querySelectorAll('div');
+    Els.forEach(el=>{console.log(el.dataset)})
+</script>
+
+RGB 16진수
+
+R 0000 0000	G0000 0000	B0000 0000
+
+1111=F
+#ff0000 = RED
+
+16진수(1-F)
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+A
+B
+C
+D
+E
+F
+
+
+<단위>
+
+<background>
+
+TEXT>
+rem + 미디어쿼리
+v + rem +clam + min/max width/height
+
+

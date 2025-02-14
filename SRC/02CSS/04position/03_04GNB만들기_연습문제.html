@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        /* common */
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            margin: 0;
+        }
+
+        /* layout */
+        .layout-2000 {
+            width: 2000px;
+            margin: 0 auto;
+        }
+
+
+
+        .wrapper {}
+
+        /* header */
+        .wrapper>header {
+            position: relative;
+            width: 100%;
+            height: 100px;
+            background-image: url('https://polypark.kr/web/upload/appfiles/0zdpAngaKBFnlCcCqpCU4A/bc3661aa6413e52ad0cd48630876116f.png');
+            background-size: 20vw;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .wrapper>header>.top-header {}
+
+        .wrapper>header>nav {
+            position: absolute;
+            bottom: -50px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            background-color: white;
+     
+        }
+
+        /* main-menu */
+        .wrapper>header>nav>ul.main-menu {
+            /* border: 1px solid red; */
+            display: flex;
+            justify-content: space-between;
+            height: 50px;
+            width: 100px;
+            top: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            padding: 0;
+            margin: 0 auto;
+            width: fit-content;
+        }
+
+        .wrapper>header>nav>ul.main-menu>li {
+            /* border: 1px solid green; */
+
+            line-height: 50px;
+            text-align: center;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 50px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        .wrapper>header>nav>ul.main-menu>li>a {
+            background-color: yellowgreen;
+            display: block;
+        }
+
+        /* sub-menu */
+        .wrapper>header>nav>ul.main-menu>li>ul.sub-menu {
+            background-color: aqua;
+            position: absolute;
+            left: 0;
+            top: 50px;
+            width: 100%;
+            display: none;
+        }
+
+        .wrapper>header>nav>ul.main-menu>li>ul.sub-menu>li {
+            border: 1px solid rosybrown;
+
+        }
+
+        .wrapper>header>nav>ul.main-menu>li>ul.sub-menu>li>a {
+            background-color: red;
+            display: block;
+
+        }
+
+        .wrapper>header>nav>ul.main-menu:hover .sub-menu {
+            display: block;
+        }
+
+        /* main dd  */
+        .wrapper>main {}
+
+        .wrapper>main>section {
+            height: 900px;
+            width: 2000px;
+            background-color: orange;
+            display: flex;
+            margin: 0 auto;
+        }
+
+        /* footer */
+        .wrapper>footer {}
+    </style>
+</head>
+
+<body>
+    
+    <div class="wrapper">
+        <header>
+            <div class="top-header"></div>
+            <nav class="layout-2000">
+                <ul class="main-menu">
+                    <li>
+                        <a href="javascript:void(0)">1_mainmenu</a>
+                        <ul class="sub-menu">
+                            <li><a href="javascript:void(0)">1_submenu</a></li>
+                            <li><a href="javascript:void(0)">2_submenu</a></li>
+                            <li><a href="javascript:void(0)">3_submenu</a></li>
+                            <li><a href="javascript:void(0)">4_submenu</a></li>
+                            <li><a href="javascript:void(0)">5_submenu</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)">2_mainmenu</a>
+                        <ul class="sub-menu">
+                            <li><a href="javascript:void(0)">1_submenu</a></li>
+                            <li><a href="javascript:void(0)">2_submenu</a></li>
+                            <li><a href="javascript:void(0)">3_submenu</a></li>
+                            <li><a href="javascript:void(0)">4_submenu</a></li>
+                            <li><a href="javascript:void(0)">5_submenu</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)">3_mainmenu</a>
+                        <ul class="sub-menu">
+                            <li><a href="javascript:void(0)">1_submenu</a></li>
+                            <li><a href="javascript:void(0)">2_submenu</a></li>
+                            <li><a href="javascript:void(0)">3_submenu</a></li>
+                            <li><a href="javascript:void(0)">4_submenu</a></li>
+                            <li><a href="javascript:void(0)">5_submenu</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)">4_mainmenu</a>
+                        <ul class="sub-menu">
+                            <li><a href="javascript:void(0)">1_submenu</a></li>
+                            <li><a href="javascript:void(0)">2_submenu</a></li>
+                            <li><a href="javascript:void(0)">3_submenu</a></li>
+                            <li><a href="javascript:void(0)">4_submenu</a></li>
+                            <li><a href="javascript:void(0)">5_submenu</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </nav>
+        </header>
+        <main>
+            <section></section>
+        </main>
+        <footer></footer>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        // // 배열 : 여러 자료Type을 저장하기 위한 자료구조 
+        // //----------------------------------        
+        // //배열의 type 확인
+        // //----------------------------------
+        // let arr = ['str1','str2',null,true,false,undefined,{name:"홍길동",age:15}];
+        // console.log(typeof arr);
+        // console.log(typeof arr[0]);
+        // console.log(typeof arr[1]);
+        // console.log(typeof arr[2]);
+        // console.log(typeof arr[3]);
+        // console.log(typeof arr[4]);
+        // console.log(typeof arr[5]);
+        // console.log(typeof arr[6],arr[6]);
+        // //----------------------------------        
+        // //배열의 동적 확장 확인
+        // //----------------------------------
+        // console.log(arr);
+        // arr[7]=100;
+        // console.log(arr);
+        // arr[10]='helloworld';
+        // console.log(arr[8],arr[9],arr[10]);
+        // console.log('길이 : ',arr.length);
+        // //----------------------------------
+        // // 배열 함수 사용해보기(forEach) - 반복문
+        // //----------------------------------
+        // arr.forEach((item)=>{
+        //     console.log('item',item);
+        // });
+        // //----------------------------------
+        // // 배열 함수 사용해보기
+        // // push-마지막idx에 요소추가 
+        // // pop-마지막idx 요소 제거
+        // //----------------------------------
+        // arr.push('aaa');arr.push('bbb');arr.push('ccc');
+        // console.log(arr);
+        // arr.pop(),arr.pop();
+        // console.log(arr);
+
+        //----------------------------------
+        //정렬
+        //----------------------------------
+        // let arr_2 = [10,undefined,55,{"key1":"v1"},11,{"key2":"v2"},24,null,5,null,44,"1",22];
+        // //오름차순(기본)
+        // // arr_2.sort();   // 배열의 요소들이 문자열로 변환되어 사전편찬순서로 정렬,기본값은 오름차순
+        // //                 // Object와 null은 순서에따라 정렬
+        // // arr_2.forEach((item)=>{console.log(item)});
+        // // console.log(arr_2);
+
+        // //내림차순
+        // // arr_2.sort((a,b)=>{return b-a;});
+        // // arr_2.sort((a,b)=>{
+        // //     // console.log("sort 내로 진입",a,b);
+        // //     return b-a;
+        // // });
+
+        // //약식표현
+        // arr_2.sort((a,b)=>b-a);
+        // arr_2.forEach(item=>console.log("item : " ,item));
+
+        // // arr_2.sort(function(a,b){return b-a;});
+
+
+        //----------------------------------
+        //필터(filter)
+        //----------------------------------
+        // let arr_3 = [10,15.2,'t1','t2',30,true,null,100,{name:'티모',age:555},20];
+        // let filtered_arr1 = arr_3.filter((item)=>typeof item =="number");
+        // // console.log(filtered_arr1);
+
+        // arr_3.filter(item=>typeof item =='string')
+        //      .forEach(item=>console.log(item));
+
+        //----------------------------------
+        //누적 누산된결과값=배열.reduce((누산변수,item)=>{return 연산로직} , 누산변수의 초기값)
+        //----------------------------------
+        // let arr_4 = [10,15.2,'t1','t2',30,true,null,100,{name:'티모',age:555},20];
+
+        // const r_val = arr_4.filter((item)=>{return typeof item=="number"})
+        //                    .reduce((sum,item)=>{return sum+item;},0)
+        // console.log("r_val : ",r_val);                   
+
+        // //----------------------------------
+        // // 배열object 처리 [{},{},{},{}...]
+        // //----------------------------------
+        // let arr_5 = [
+        //     {pid:"1",pname:"모니터",price:100,amount:50},
+        //     {pid:"2",pname:"노트북",price:200,amount:15},
+        //     {pid:"3",pname:"냉장고",price:250,amount:30},
+        //     {pid:"4",pname:"데스크탑",price:70,amount:19},
+        //     {pid:"5",pname:"가습기",price:10,amount:200},
+        // ];
+        // arr_5.forEach(item=>console.log(item))
+        // console.log("--------------------------");
+        // // arr_5.forEach((item,index)=>console.log(index,item.pname))
+        // arr_5.forEach((item,index)=>console.log(index,item["pname"]))
+
+        // // 각 item의 가격이 100만원이상인 object만 필터링(>=, <=)
+
+        // console.log("---------------------------");
+        // const filtered_arr1 =  arr_5.filter(item=>item.price>=100)
+        // console.log(filtered_arr1);
+        // console.log("---------------------------");
+        // // 각 item의 수량이 30개 이하인 object만 필터링(>=,<=)
+        // const filterd_arr2 = arr_5.filter(item=>item.amount<=30);
+        // console.log(filterd_arr2);
+        // console.log("---------------------------");
+        // const r_val1 =  arr_5.filter(item=>item.price>=100).reduce((sum,item)=>sum+item.price,0)
+        // console.log('가격이 100만원 이상인item의 가격총합 : ',r_val1);
+
+
+        //----------------------------------
+        // 재구성 배열.map((item)=>{return 재구성할item;})
+        // //----------------------------------
+        // let arr_6 = [
+        //     { pid: "1", pname: "모니터", price: 100, amount: 50 },
+        //     { pid: "2", pname: "노트북", price: 200, amount: 15 },
+        //     { pid: "3", pname: "냉장고", price: 250, amount: 30 },
+        //     { pid: "4", pname: "데스크탑", price: 70, amount: 19 },
+        //     { pid: "5", pname: "가습기", price: 10, amount: 200 },
+        // ];
+        // // 수량이 30이상인 요소만 필터링해서/ price가 낮은값우선 오름차순 / 요소마다 price*amount 항목을 추가
+        // let maped_arr = arr_6.filter((item) => { return item.amount >= 30 })
+        //     .sort((a, b) => { return a.price - b.price; })    // 오름차순
+        //     .map((item) => {
+        //         console.log('in map..', item);
+        //         item = { ...item, 'total_price': item.price * item.amount };
+        //         return item;
+        //     });
+        // console.log('-----------RESULT----------------');
+        // console.log(maped_arr);
+
+
+
+        //----------------------------------
+        //  문제
+        //----------------------------------
+        let employees = [
+            { id: 1, name: "김철수", age: 35, department: "개발", salary: 6000, years: 10 },
+            { id: 2, name: "이영희", age: 28, department: "디자인", salary: 5000, years: 5 },
+            { id: 3, name: "박지성", age: 40, department: "마케팅", salary: 7000, years: 15 },
+            { id: 4, name: "손흥민", age: 30, department: "개발", salary: 6500, years: 7 },
+            { id: 5, name: "정우성", age: 45, department: "경영", salary: 9000, years: 20 },
+            { id: 6, name: "한지민", age: 29, department: "디자인", salary: 5200, years: 6 },
+            { id: 7, name: "강호동", age: 50, department: "경영", salary: 8500, years: 25 },
+            { id: 8, name: "유재석", age: 42, department: "마케팅", salary: 7500, years: 18 },
+            { id: 9, name: "송중기", age: 32, department: "개발", salary: 6200, years: 8 },
+            { id: 10, name: "수지", age: 26, department: "디자인", salary: 4800, years: 3 }
+        ];
+
+        //연봉이(salary) 6000이상이면서 근속연수(years)가 7년이상인 직원만 필터링해서 배열로 저장 확인
+            let salary_arr1 = employees.filter((item) => {return item.salary >=6000 && item.years>=7});
+            console.log(salary_arr1);
+            
+
+        //모든 직원의 연봉(salary) 기준으로 내림차순 정렬한 배열 새로 만들기
+            let salary_arr2 = employees.filter((item) => {return item.salary})
+            .sort((a,b) => {return b.salary - a.salary})
+            console.log(salary_arr2);
+        
+        //모든 직원의 연봉(salary) 에 근속연수*100 만큼의 보너스를 추가하여 total_salary필드를 추가한 배열을 반환
+        let salary_arr3 = employees.filter((item) => {return item.years})
+        .map((item) => {
+            console.log('in map..', item);
+            item={...item, "total_salary" : item.salary+item.years * 100};
+            return item;
+        })
+        //department(부서) 별로 직원들의 연봉총합을 구하세요
+        let salary_arr4 = employees.reduce((sum,item) =>{
+            sum[item.department]=(sum[item.department]==undefined? 0 : sum[item.department])+item.salary;
+            return sum;
+
+        },{});
+        console.log(salary_arr4);
+           
+        
+
+        //연봉(salary)가 가장높은 직원을 찾아 객체하나만 반환(문서에서 find를 찾아보세요 - !)
+        const salary_5 =employees.sort((a,b)=>{return b.salary-a.salary;})[0];
+        console.log(salary_5);
+
+        const salary_6=employees.map((item)=>{
+            return item.salary
+        }).sort((a,b) => {return b-a})[0];
+        
+        const max=employees.map((item)=>{
+            return item.salary
+        }).sort((a,b) => {return b-a})[0];
+        
+        
+        const max_object=employees.find((item)=>{
+            return item.salary==max})
+            console.log(max_object);
+    
+
+    </script>
+</body>
+
+</html>

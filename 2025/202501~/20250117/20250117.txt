@@ -1,0 +1,38 @@
+1. Workspace 경로를 변경(폴더명 : Workspace2)
+
+2. 기본 작업 세팅
+- Tomcat 연결
+- Dynamiccweb Porject생성
+- Java Version 11버전 설정
+- servlet.jar, jsp-api.jar 를 lib로 이동
+- webapp>index.jsp 생성
+- 동작확인
+
+3. git 설정
+- git init 설정
+- index.jsp 에 내용추가 후 commit 하기 (V0.0 - master)
+- branch 생성 (dev)
+- dev branch로 전환후 index.jsp 에 내용 수정후 commit(V0.1-dev)
+- branch 생성(feature/board)
+- feature/board branch로 전환후 index.jsp 에 내용 수정 후 commit(V0.2-board)
+- feature/auth branch로 전환후 index.jsp 에 내용 수정 후 commit(V0.2-auth)
+- feature/board -> dev 로 병합(V0.2-dev board)
+- feature/auth -> dev 로 병합(V0.2-dev auth)
+- dev -> master 로 병합(V0.2 master)
+- 과정에서 발생되는 Conflict는 적절히 수행해서 Merging
+
+
+
+
+
+LOCATHOST(이클립스) 					REMOTE
+GIT REPO 				-> 		GITHUB REPO
+					PUSH
+LOCALHOST(이클립스)					REMOTE
+GIT REPO					<-		GITHUB REPO
+					CLONE
+
+
+깃헙에서 만들 때 레파지토리 리드미 만들면 안 됨
+
+

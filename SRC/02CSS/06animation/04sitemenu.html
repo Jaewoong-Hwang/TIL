@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    *{box-sizing:border-box}
+    body{
+        margin: 0px;
+    }
+    .sietmenu{padding: 20px;}
+    .sitemenu>input[type="checkbox"]{
+        display: none;
+    }
+    .sitemenu>label{}
+    .sitemenu>label>span{
+        display: block;
+        width: 35px;
+        height: 2px;
+        background-color: gray;
+        margin: 8px;
+        transition: .5s;
+    }
+    .sitemenu>input[type="checkbox"]:checked+label>span:nth-child(1){
+        transform: translate(0px,10px) rotate(45deg);
+   }
+    .sitemenu>input[type="checkbox"]:checked+label>span:nth-child(2){
+        width: 0;
+        opacity: 0;
+    }
+    .sitemenu>input[type="checkbox"]:checked+label>span:nth-child(3){
+        transform: translate(0px,-10px) rotate(-45deg);
+    }
+    .sitemenu>.siteblock{
+        width: 0px;
+        height: 0px;
+        border: 5px solid;
+        visibility: hidden;
+        transition: 1s;
+    }
+    .sitemenu>input[type="checkbox"]:checked~.siteblock{
+        visibility: visible;
+        height: 500px;
+        width: 100%;
+    }
+</style>
+
+
+
+</head>
+<body>
+    
+    <div class="sitemenu">
+        <input type="checkbox" id="chk">
+        <label for="chk">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+        <div class="siteblock">
+
+        </div>
+    </div>
+
+ 
+    <!-- div.sitemenu>input#chk[type=checkbox]+label[for=chk]>span*3 -->
+
+
+
+</body>
+</html>

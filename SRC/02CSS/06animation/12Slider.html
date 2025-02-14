@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{box-sizing: border-box;}
+        body{margin : 0;}
+        .slider-block{
+            width:1200px;
+            height : 300px;
+            margin : 50px auto;
+            border : 1px solid;
+            
+            overflow : hidden;
+            
+            display:flex;
+            align-items: center;
+        }
+        .slider-block>.slider-wrapper{
+            height:150px;
+            width : 3000px;
+            border:1px solid;
+
+            display:flex;
+            align-items: center;
+          
+            position:relative;
+
+            animation-name: moving;
+            animation-duration: 25s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+
+        }
+        .slider-block>.slider-wrapper>.item{
+            width:200px;
+            height : 150px;
+            border : 1px solid;
+            margin : 10px;
+            background-color: white;
+
+            transition:.5s;
+            overflow:hidden;
+        }
+        .slider-block>.slider-wrapper>.item>img{
+            width:100%;
+            height:100%;
+            object-fit: cover;
+            opacity: .7;
+            transition: .5s;
+        }
+        .slider-block>.slider-wrapper>.item:first-child{
+            margin-left:0;
+        }
+
+        .slider-block>.slider-wrapper:hover{
+            animation-play-state: paused;
+        }
+        .slider-block>.slider-wrapper>.item:hover{
+            transform: scale(1.5);
+        }
+        .slider-block>.slider-wrapper>.item:hover img{
+            opacity: 1;
+            width : 100%;
+            height : 100%;
+            transform: scale(1.5);
+           
+        }
+        @keyframes moving{
+            from{left:0px;}
+            to{left:-2000px;}
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="slider-block">
+        <div class="slider-wrapper">
+            <div class="item">
+                <img src="https://health.chosun.com/site/data/img_dir/2024/04/23/2024042302394_0.jpg" alt="">
+            </div>
+            <div class="item">
+                <img src="https://health.chosun.com/site/data/img_dir/2024/04/23/2024042302394_0.jpg" alt="">
+            </div>
+            <div class="item">3</div>
+            <div class="item">4</div>
+            <div class="item">5</div>
+            <div class="item">6</div>
+            <div class="item">7</div>
+            <div class="item">8</div>
+            <div class="item">9</div>
+            <div class="item">10</div>
+        </div>
+    </div>
+</body>
+
+</html>

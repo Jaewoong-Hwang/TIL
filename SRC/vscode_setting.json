@@ -1,0 +1,83 @@
+{
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "json.schemas": [],
+  "workbench.colorCustomizations": {
+    "editor.background": "#1e1e1e"
+  },
+  "editor.tokenColorCustomizations": {
+    "comments": "#00f7ff",
+    "textMateRules": [
+      {
+        "scope": "entity.name.tag",
+        "settings": {
+          "foreground": "#fdfdfd"
+        }
+      },
+      {
+        "scope": "punctuation.definition.tag",
+        "settings": {
+          "foreground": "#4CAF50"
+        }
+      },
+      {
+        "scope": "entity.other.attribute-name",
+        "settings": {
+          "foreground": "#21f325"
+        }
+      },
+      {
+        "scope": "text.html.basic",
+        "settings": {
+          "foreground": "#00fb04"
+        }
+      },
+      {
+        "scope": "string.quoted.double.html",
+        "settings": {
+          "foreground": "#ffffff"
+        }
+      },
+      // css 속성명 표시
+      {
+        "scope": "support.type.property-name.css",
+        "settings": {
+          "foreground": "#00fb04"
+        }
+      },
+      //큰따옴표 내의 색상
+      {
+        "scope": "string.quoted.double.css",
+        "settings": {
+          "foreground": "#faf606" // 큰따옴표 내부 텍스트 색상 변경 (주황색)
+        }
+      },
+      {
+        "scope": "string.quoted.double.html",
+        "settings": {
+          "foreground": "#faf606" // HTML에서 큰따옴표 내부 텍스트 색상 변경
+        }
+      },
+      // 작은따옴표 내의색상
+      {
+        "scope": "string.quoted.single.html",
+        "settings": {
+          "foreground": "#37f0a0"  
+        }
+      },
+      {
+        "scope": "string.quoted.single.css",
+        "settings": {
+          "foreground": "#37f0a0" 
+        }
+      },
+      {
+        "scope": "support.constant.property-value.css",
+        "settings": {
+          "foreground": "#89ddfc" // 따옴표 없는 값의 색상을 보라색(#ff00ff)으로 변경
+        }
+      }
+    ],
+  },
+  "editor.minimap.enabled": false,
+  "settingsSync.ignoredSettings": []
+}

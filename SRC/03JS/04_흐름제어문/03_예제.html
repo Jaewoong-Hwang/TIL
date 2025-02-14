@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        nav {
+            height: 80px;
+            border: 1px solid;
+        }
+
+        nav>.main-menu {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            width : 100%;
+        }
+        nav>.main-menu>li{
+            background-color: orange;
+            color:white;
+            text-align: center;
+            border: 1px solid;;
+            min-width : 120px;
+            max-width : 150px;
+            width : 100%;
+            height : 45px;
+            line-height: 45px;
+        }
+        nav>.main-menu>li>a{
+            display:block;
+        }
+        nav>.main-menu>li>.sub-menu{
+            list-style: none;
+            margin: 0; padding : 0;
+            background-color: royalblue;
+            display:none;
+        }
+        nav>.main-menu>li>.sub-menu>li{}
+        nav>.main-menu>li>.sub-menu>li>a{}
+
+        nav>.main-menu>li:hover>.sub-menu{
+            display:block;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <header>
+            <div class="top-header"></div>
+            <nav>
+                <ul class="main-menu"></ul>
+            </nav>
+        </header>
+
+        <footer>
+
+            <form name="navForm" onsubmit="return false">
+                <input type="text" name="menuname">
+                <a href="javascript:void(0)" class="nav-btn">NAV-메인메뉴만들기</a>
+            </form>
+            <form name="modeForm" onsubmit="return false">
+                <select name="setViewMode" id="">
+                    <option value="mobile">모바일</option>
+                    <option value="desktop">데스크탑</option>
+                </select>
+                <a href="javascript:void(0)" class="view-mode-btn">모드 변환</a>
+            </form>
+
+            <form name="submenuForm" onsubmit="return false">
+                <input type="text" name="mainname" placeholder="메인 메뉴명을 입력하세요">
+                <input type="text" name="subname" placeholder="서브 메뉴명을 입력하세요(띄어쓰기)">
+                <a href="javascript:void(0)" class="sub-menu-btn">NAV-서브메뉴만들기</a>
+            </form>
+            
+        </footer>
+    </div>
+
+
+    <script>
+        const mainMenuEl = document.querySelector('.main-menu');
+        // const settings = prompt('NAV메뉴를 입력하세요 띄어쓰기로 구분합니다');
+        const navBtn = document.querySelector('.nav-btn');
+        navBtn.addEventListener('click', () => {
+            const form = document.navForm;
+            const settings = form.menuname.value;
+            const menuArr = settings.split(' ');
+            console.log(menuArr);
+            
+            // 기존 자식 노드(li) 제거
+            while(mainMenuEl.firstChild){
+                mainMenuEl.removeChild(mainMenuEl.firstChild);
+            }
+            // 새로운 자식 노드(li) 추가
+            // for (let i = 0; i < menuArr.length; i++) {
+            //     // 요소생성
+            //     const liEl = document.createElement('li');
+            //     liEl.innerHTML = menuArr[i];
+            //     mainMenuEl.appendChild(liEl);
+            // }
+
+            // 배열함수를 이용(forEach)해서 자식 노드(li) 추가
+            menuArr.forEach((str)=>{
+                const liEl = document.createElement('li');
+                // 
+                const aEl = document.createElement('a');
+                aEl.setAttribute('href','javascript:void(0)');
+                aEl.innerHTML = str;
+                
+                // li - a(자식) 추가
+                liEl.appendChild(aEl);
+                
+                mainMenuEl.appendChild(liEl);
+            });
+
+        });
+       
+        //[중요!] 배열함수 / 노드CRUD / 이벤트 / 동기&비동기
+        // VIWE MODE BTN 
+        const viewModeBtnEl = document.querySelector('.view-mode-btn');
+        viewModeBtnEl.addEventListener('click',()=>{
+
+            const form = document.modeForm;
+            const modeOption = form.setViewMode.value;
+            console.log('modeOption',modeOption);
+           
+            const wrapperEl = document.querySelector('.wrapper');
+            if(modeOption === "mobile"){
+                //모바일 화면
+                wrapperEl.style.width="380px";
+                wrapperEl.style.margin="0 auto";
+            }else if(modeOption ==="desktop"){
+                //데스크탑 화면
+                wrapperEl.style.width="100%";
+                wrapperEl.style.margin="0 auto";
+            }else{
+
+            }
+
+        });
+
+        // 서브메뉴 만들기
+        const subMenuBtnEl = document.querySelector('.sub-menu-btn');
+        subMenuBtnEl.addEventListener('click',()=>{
+            const form = document.submenuForm;
+            const mainname = form.mainname.value;
+            const subname = form.subname.value;
+            console.log(mainname,subname);
+
+            // 메인메뉴 찾기
+            const mainMenuLiEls = document.querySelectorAll('.main-menu>li>a');
+            console.log(mainMenuLiEls);
+
+            // const findAEl =  mainMenuLiEls.find((el)=>el.textContent.trim() === mainname );
+            // console.log("findAEl",findAEl);
+            
+            mainMenuLiEls.forEach((el)=>{
+                if(el.textContent.trim() === mainname){
+                    console.log('find!!',el);
+                    const liEl =  el.parentNode;
+                    console.log(liEl);
+                    
+                    // 서브메뉴 만들기
+                    const submenuArr = subname.split(' ');
+                    // ul 생성 , li 생성 , a 생성 - 연결
+                    const ulEl = document.createElement('ul');
+                    ulEl.classList.add('sub-menu');
+                    submenuArr.forEach(str=>{
+                        const newLi = document.createElement('li');
+                        const newA = document.createElement('a');
+                        newA.setAttribute('href','javascript:void(0)');
+                        newA.innerHTML=str;
+
+                        newLi.appendChild(newA);
+                        ulEl.appendChild(newLi);
+                    })
+
+                    liEl.appendChild(ulEl);
+
+
+                }
+            })
+
+            
+
+        });
+
+
+    </script>
+
+</body>
+
+</html>

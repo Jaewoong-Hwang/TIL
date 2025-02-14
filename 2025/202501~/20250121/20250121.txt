@@ -1,0 +1,29 @@
+feature/t1 브랜치 생성 t1.txt 생성 commit V0.2 t1
+feature/t2 브랜치 생성 t2.txt 생성 commit V0.2 t2
+
+feature/t1 을 기능마무리
+feature/t2 을 기능 마무리
+
+develop 브랜치 병합 확인
+
+SOURCE_TREE_GITHUB 생성
+SOURCETREE 에서 Clone 하기
+main V0.0 main.txt 생성 후 V0.0 main Commit
+깃플로우 기능 이용해서 dev 생성
+dev V0.1 dev.txt 생성후 V0.1 dev Commit
+feature/board branch 생성
+feature/auth branch 생성
+feature/auction branch 생성
+각 feature branch 에서 여러작업들 하고 각각 V0.1 feature/개별브랜치 명으로  commit
+dev branch에 rebase merge로 정리할 것
+main branch 에 새커밋 추가 병합 할 것
+
+
+
+<화면설계>
+1.유스케이스 -> draw.io 로 초안 작업 -> 밴치마킹할 사이트를 선정하는 게 좋음. 
+구조는 탑헤더, 네비게이션 등.
+
+관리자와 유저 사이트는 따로 있음. 
+
+

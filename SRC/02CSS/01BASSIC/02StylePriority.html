@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<style>
+    h1{
+        background-color: orange;
+        color: white;
+        
+    }
+</style>
+<link rel="stylesheet" href="./css/common.css">
+<style>
+    h1{
+        background-color: orange !important;   ----!important 를 가장 높은 우선순위다
+        color: white;
+        
+    }
+</style>
+<!-- link로 걸거나 style 태그나 동등하지만 제일 마지막 것을 적용함 -->
+</head>
+<body>
+    
+<!-- 문서내 Style 태그
+ 외부 css 생성 이후 link 생성 설정(권장)
+ inline style(권장 x)
+ !important(권장 x) -->
+<!-- -->
+
+ <h1 style="background-color: red; color: black;">HELLOWORLD</h1> 
+ <!-- /*인라인은 안쓰는 것이 좋음. 수정할 때 힘들다 */ -->
+</body>
+</html>

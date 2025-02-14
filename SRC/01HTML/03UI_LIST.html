@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* ul{
+            list-style:none;
+            margin :0;
+            padding : 0;
+            font-size : .5rem;
+        }
+        .mainmenu{
+            display:flex;
+            justify-content: space-between;
+            align-items: start;
+
+            height : 50px;
+            width : 100%;
+            
+
+        }
+        .mainmenu>li{
+            border : 1px solid;
+            position:relative;
+            width : 150px;
+            min-width : 150px;
+            max-width : 150px;
+        }
+        .mainmenu>li>a{
+            height : 25px;
+            border : 1px solid;
+            display:block;
+            width : 100%;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            color : black;
+        }
+        .mainmenu>li>a:hover{
+            background-color:antiquewhite ;
+        }
+
+        .submenu{
+            border : 1px solid red;
+            /* display:none; */
+
+            position:absolute;
+            top:0px;
+            left:150px;
+        }
+        .mainmenu>li:hover .submenu{
+            display:block;
+        }
+         */
+    </style>
+</head>
+<body>
+    <!-- UL태그 : 리스트형 구조 생성 태그 -->
+     
+    <!-- 기본형 : 순서번호가 없는 리스트(EMMET 단축 : ul>li*4{LIST$}) -->
+     <ul>
+        <li>LIST1</li>
+        <li>LIST2</li>
+        <li>LIST3</li>
+        <li>LIST4</li>
+     </ul>
+     <hr/>
+
+     <!-- OL태그 : 순서번호가 있는 리스트 type=a,i,1 -->
+    <ol type="A">
+        <li>LIST1</li>
+        <li>LIST2</li>
+        <li>LIST3</li>
+        <li>LIST4</li>
+    </ol>
+    <hr/>
+    <h4>정보처리산업기사 과정평가형</h4>
+    <ul class="mainmenu">
+        <li>
+            <a href="">SW 응용기초 활용</a>
+            <ul class="submenu">
+                <li>
+                    네트워크 기초 활용하기
+                    <ul class="submenu2">
+                        <li>네트워크 계층구조 확인</li>
+                        <li>라우팅 프로토콜 설정</li>
+                        <li>기타 프로토콜 확인</li>
+                    </ul>
+                </li>
+                <li>미들웨어 기초 활용하기</li>
+                <li>데이터베이스 기초 활용하기</li>
+            </ul>
+        </li>
+        <li>
+            개발자 환경 구축
+            <ul>
+                <li>운영체제 기초 활용하기</li>
+                <li>기본 개발환경 구축하기</li>
+            </ul>
+        </li>
+        <li>
+            화면 설계
+            <ul>
+                <li>UI 요구사항 확인하기</li>
+                <li>UI 설계하기</li>
+            </ul>
+        </li>
+        <li>화면 구현</li>
+        <li>UI 테스트</li>
+        <li>프로그래밍 언어 활용</li>
+        <li>프로그래밍 언어 응용</li>
+        <li>데이터 입출력 구현</li>
+        <li>SQL 활용</li>
+        <li>요구사항 확인</li>
+        <li>서버프로그램 구현</li>
+        <li>통합 구현</li>
+        <li>애플리케이션 테스트 수행</li>
+        <li>애플리케이션 배포</li>
+        <li>애플리케이션 테스트 관리</li>
+    </ul>
+
+    
+</body>
+</html>
