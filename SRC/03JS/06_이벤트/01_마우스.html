@@ -12,12 +12,20 @@
             height: 200px;
             border: 1px solid;
         }
-
+        .dragblock{
+            display: flex;
+            justify-content: left;
+            align-items: center;
+            
+            flex-wrap: wrap;
+            width: 100%;
+            height: 100%;
+        }
         .d4 {
             width: 500px;
             height: 500px;
             padding: 10px;
-            margin: 10px;
+            /* margin: 10px; */
             border: 5px dashed gray;
             position: relative;
             color: gray;
@@ -33,11 +41,30 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            margin: auto;
+            margin: 0;
             width: 100%;
             height: 100%;
 
         }
+
+        .preview{
+            width: 150px;
+            height: 500px;
+            border: 1px solid;
+            padding: 10px;
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            overflow-y: auto;
+            overflow-x: hidden;
+            gap: 5px;
+            flex-direction: column;
+        }
+        .preview::-webkit-scrollbar{
+            display: none;
+        }
+
+      
     </style>
 
 </head>
@@ -50,7 +77,11 @@
     <hr />
     <div class="d3"></div>
     <hr />
-    <div class="d4"></div>
+   
+    <div class="dragblock">
+        <div class="d4"></div>
+        <div class="preview"></div>
+    </div>
 
 
     <script>
@@ -169,10 +200,18 @@
             console.log('drop', e.dataTransfer.files)
             console.log('drop', e.dataTransfer.files[0])
             const file = e.dataTransfer.files[0];
-
+//유효성 확인(FN)
             if (!isValid(file)) return;
 
+
+           
             //미리보기로 이미지 보여주기
+            const previewEl = document.querySelector('.preview');
+            const newImageEl = document.createElement('img');
+            newImageEl.src=URL.createObjectURL(file);
+            newImageEl.setAttribute('style','width:100%,height:100%,object-fit:contain,height:150px,border-box:1px solid');  //중요 새 노드를 생성할 때는 .style 사용 못함 
+            previewEl.prepend(newImageEl);
+
 
         });
 
