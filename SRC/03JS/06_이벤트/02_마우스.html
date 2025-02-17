@@ -57,11 +57,32 @@
         }
 
         .wrapper>main>section>article .item{
+            
+            border: 1px solid;
+           
+            position: absolute;
+        }
+        .wrapper>main>section>article .item.item-style-1{
+            width: 100px;
+            height: 100px;
+            background-color: aquamarine;
+        }
+        .wrapper>main>section>article .item.item-style-2{
+            width: 150px;
+            height: 150px;
+            background-color: royalblue;
+        }
+        .wrapper>main>section>article .item.item-style-3{
             width: 200px;
             height: 200px;
-            border: 1px solid;
-            background-color: bisque;
-            position: absolute;
+            background-color: orange;
+            border-radius: 25%;
+        }
+        .wrapper>main>section>article .item.item-style-4{
+            width: 300px;
+            height: 300px;
+            background-color: green;
+            border-radius: 50%;
         }
 
     </style>
@@ -77,10 +98,10 @@
 
 
                     <ul class="items">
-                        <li><a href="" draggable="ture">ITEM</a></li>
-                        <li><a href="" draggable="ture">ITEM</a></li>
-                        <li><a href="" draggable="ture">ITEM</a></li>
-                        <li><a href="" draggable="ture">ITEM</a></li>
+                        <li><a href="" draggable="ture" class="item-style-1">ITEM_1</a></li>
+                        <li><a href="" draggable="ture"class="item-style-2">ITEM_2</a></li>
+                        <li><a href="" draggable="ture"class="item-style-3">ITEM_3</a></li>
+                        <li><a href="" draggable="ture"class="item-style-4">ITEM_4</a></li>
 
                     </ul>
 
@@ -96,9 +117,23 @@
 
 
     <script>
+
+        const liEls = dicument.querySelector('.items li');
+        let dragedNode = null;
+        liEls.forEach((liEl)=>{
+            liEl.addEventListener('dragstart',(e)=>{
+                // console.log('dragstart',e.target);
+                dragedNode=e.target;
+                console.log("dragedNode",dragedNode);
+            });
+        })
+
+
         const boardEl=document.querySelector('.board');
+
         boardEl.addEventListener('dragover',(e)=>{
             e.preventdefault();
+            console.log("dragstart",e.target)
           
         });
         boardEl.addEventListener('drop',(e)=>{
@@ -108,8 +143,15 @@
             console.log('OffsetXY',e.offsetX,e.offsetY);
 
             const newDivEl = dicument.createElement('div');
+
             newDivEl.classlist.add('item');
-            newDivEl.setAttribute('style',`left:${e.offsetX}px;top:${e.offsetY}px`);
+            newDivEl.setAttribute('style',`left:${e.offsetX}px;top:${e.offsetY}px;`);
+            const itemAllClassArr=objects.values(dragedNode.classlist);
+            itemAllClassArr.forEach((className)=>{
+                newDivEl.classlist.add(className);
+            })
+            console.log('dragedNode',itemAllClassArr);
+
             boardEl.appendChild(newDivEl);
         }); 
 
