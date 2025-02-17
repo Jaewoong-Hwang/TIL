@@ -107,7 +107,7 @@
 
     <script>
 
-
+        // 1 아이템 드래그 & 드랍
         const liEls = document.querySelectorAll('.items li');
         let dragedNode = null;
         liEls.forEach((liEl)=>{
@@ -143,6 +143,21 @@
 
             boardEl.appendChild(newDivEl);
         });
+
+
+        // 우클릭 시 이동 처리
+        boardEl.addEventListener('contextmenu',(e)=>{
+            e.preventDefault();
+        });
+        //상태정보 저장
+        let isMoving = false;
+        let offsetX = 0;
+        let offsetY = 0;
+
+        boardEl.addEventListener('mousedown',(e)=>{
+            console.log(e.button);
+        });
+
 
     </script>
 </body>
