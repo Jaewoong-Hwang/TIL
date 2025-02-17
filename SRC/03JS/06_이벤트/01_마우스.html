@@ -12,15 +12,17 @@
             height: 200px;
             border: 1px solid;
         }
-        .dragblock{
+
+        .dragblock {
             display: flex;
             justify-content: left;
             align-items: center;
-            
+
             flex-wrap: wrap;
             width: 100%;
             height: 100%;
         }
+
         .d4 {
             width: 500px;
             height: 500px;
@@ -47,7 +49,7 @@
 
         }
 
-        .preview{
+        .preview {
             width: 150px;
             height: 500px;
             border: 1px solid;
@@ -60,11 +62,10 @@
             gap: 5px;
             flex-direction: column;
         }
-        .preview::-webkit-scrollbar{
+
+        .preview::-webkit-scrollbar {
             display: none;
         }
-
-      
     </style>
 
 </head>
@@ -77,7 +78,7 @@
     <hr />
     <div class="d3"></div>
     <hr />
-   
+
     <div class="dragblock">
         <div class="d4"></div>
         <div class="preview"></div>
@@ -198,19 +199,27 @@
             console.log('drop', e.target)
             console.log('drop', e.dataTransfer)
             console.log('drop', e.dataTransfer.files)
-            console.log('drop', e.dataTransfer.files[0])
-            const file = e.dataTransfer.files[0];
-//유효성 확인(FN)
-            if (!isValid(file)) return;
+
+            const files = e.dataTransfer.files;
+            for (let i = 0; i < files.length; i++) {
+
+                console.log('drop', e.dataTransfer.files[i])
+                const file = e.dataTransfer.files[i];
+                
+                //유효성 확인(FN)
+                if (!isValid(file)) return;
 
 
-           
-            //미리보기로 이미지 보여주기
-            const previewEl = document.querySelector('.preview');
-            const newImageEl = document.createElement('img');
-            newImageEl.src=URL.createObjectURL(file);
-            newImageEl.setAttribute('style','width:100%,height:100%,object-fit:contain,height:150px,border-box:1px solid');  //중요 새 노드를 생성할 때는 .style 사용 못함 
-            previewEl.prepend(newImageEl);
+
+                //미리보기로 이미지 보여주기
+                const previewEl = document.querySelector('.preview');
+                const newImageEl = document.createElement('img');
+                newImageEl.src = URL.createObjectURL(file);
+                newImageEl.setAttribute('style', 'width:100%,object-fit:contain,height:150px,border-box:1px solid');  //중요 새 노드를 생성할 때는 .style 사용 못함 
+                previewEl.prepend(newImageEl);
+            }
+
+
 
 
         });
