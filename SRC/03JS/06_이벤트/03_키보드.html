@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+KEYUP : <input id="input1"><br>
+<p id="p1"></p>
+<hr>
+KEYDOWN : <input id="input2"><br>
+<p id="p2"></p>
+<hr>
+KEYPRESS : <input id="input3"><br>
+<p id="p3"></p>
+<hr>
+
+<script>
+    //KEYUP     :   키보드가 올라올때
+    const keyupEl = document.querySelector('#input1')
+    const p1El = document.querySelector('#p1')
+    keyupEl.addEventListener('keyup', (e)=>{
+        console.log('keyup',e)
+        console.log('keyup',e.key)
+        console.log('keyup',e.keyCode)
+        p1El.innerHTML=e.key+" " + e.keyCode;
+    })
+
+    
+    //KEYDOWN   :   키도드가 내려갈때
+    const keydownEl = document.querySelector('#input2')
+    const p2El = document.querySelector('#p2')
+    keydownEl.addEventListener('keydown', (e)=> {
+        console.log('keydown',e)
+        console.log('keydown',e.key)
+        console.log('keydown',e.keyCode)
+        p2El.innerHTML=e.key+" " + e.keyCode;
+    })
+
+    //KEYPRESS  :   키보드를 계속 누를떄
+    const keypressEl = document.querySelector('#input3')
+    const p3El = document.querySelector('#p3')
+    keypressEl.addEventListener('keypress', (e)=> {
+        console.log('keypress',e)
+        console.log('keypress',e.key)
+        console.log('keypress',e.keyCode)
+        p3El.innerHTML=e.key+" " + e.keyCode;
+    })
+</script>
+
+</body>
+</html>
