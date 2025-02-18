@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>입력창과 버튼이 포함된 목록 생성</title>
+    <style>
+        li { list-style-type: none; margin: 10px 0; }
+        input { width: 150px; height: 30px; margin-right: 5px; }
+        button { height: 30px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <input id="count" placeholder="생성할 항목 개수 입력" style="width:200px;">
+    <button onclick="createList()">생성</button>
+
+    <hr>
+    <ul id="list"></ul>
+
+    <script>
+        function createList() {
+            const count = parseInt(document.getElementById("count").value);
+
+            if (isNaN(count) || count <= 0) {
+                alert("올바른 숫자를 입력하세요!");
+                return;
+            }
+
+            const listEl = document.getElementById("list");
+            listEl.innerHTML = ""; // 기존 목록 초기화
+
+            for (let i = 0; i < count; i++) {
+                const liEl = document.createElement("li");
+
+                // 입력 필드 생성
+                const inputEl = document.createElement("input");
+                inputEl.type = "text";
+
+                // 버튼 생성
+                const buttonEl = document.createElement("button");
+                buttonEl.textContent = "저장";
+                buttonEl.onclick = function() {
+                    console.log(`입력값: ${inputEl.value}`);
+                };
+
+                // 요소 추가
+                liEl.appendChild(inputEl);
+                liEl.appendChild(buttonEl);
+                listEl.appendChild(liEl);
+            }
+        }
+    </script>
+</body>
+</html>

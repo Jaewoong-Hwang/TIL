@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        td {
+            width: 50px;
+            height: 50px;
+            border: 1px solid gray;
+        }
+
+        input {
+            width: 90%;
+            height: 100%;
+            outline: none;
+            border: 0px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <input id="rownum" placeholder="행의개수입력" style="width:200px;">
+    <input id="colnum" placeholder="열의개수입력" style="width:200px;">
+    <button onclick="makemap()">생성</button>
+
+    <hr>
+    <table id="tbl">
+        <tbody>
+
+        </tbody>
+    </table>
+
+
+    <!-- <script>
+        function makemap() {
+            let row = parseInt(document.getElementById("rownum").value);
+            let col = parseInt(document.getElementById("colnum").value);
+
+            if (isNaN(row) || isNaN(col) || row <= 0 || col <= 0) {
+                alert("올바른 숫자를 입력하세요!");
+                return;
+            }
+
+            const tableBody = document.querySelector("#tbl tbody");
+            tableBody.innerHTML = "";
+
+            for (let i = 0; i < row; i++) {
+                let rowEl = document.createElement("tr");
+
+                for (let j = 0; j < col; j++) {
+                    let colEl = document.createElement("td");
+                    let inputEl = document.createElement("input");
+                    colEl.appendChild(inputEl);
+                    rowEl.appendChild(colEl);
+                }
+
+                tableBody.appendChild(rowEl);
+            }
+
+        } -->
+
+        <!-- // document.getElementById("createTableBtn").addEventListener("click", makemap);
+ -->
+
+
+
+
+    </script>
+
+
+    <script>
+        //어떤걸 저장하고 어떤식으로 처리할 것인가? 를 항상 생각해봐야 함.
+        //State
+        let curX = 0;
+        let curY = 0;
+
+        //
+        const selectedStyle=(xPos,yPos)=>{
+            const selectedEl=document.getElementById(`${xPos}|${yPos}`);
+            selectedEl.style.backgroundColor='gray';
+        }
+
+        const makemap = () => {
+            const row = document.querySelector('#rownum').value;
+            const col = document.querySelector('#colnum').value;
+            const tbodyEl = document.querySelector('#tbl tbody');
+
+
+            //기존의 있던 테이블 삭제
+            while(tbodyEl.firstChild){
+                tbodyEl.removeChild(tbodyEl.firstChild)
+            }
+
+            console.log('row', row, 'col', col);
+            for(let i=0; i<row; i++){
+                const trEl=document.createElement('tr');
+
+                for(let j=0; j<col; j++){
+                    const tdEl = document.createElement('td');
+                    tdEl.innerHTML=`(${i},${j})`;
+                    // tdEl.setAttribute('data-row',i);
+                    // tdEl.setAttribute('data-col',j);
+                    tdEl.setAttribute('id', `${i}|${j}`);
+                    trEl.appendChild(tdEl);
+                }
+
+                tbodyEl.appendChild(trEl);
+            }
+
+            //기본 cur 위치
+            curX = Math.ceil(col/2);
+            curY = Math.ceil(row/2);
+            //초기 선택된 위치 스타일링
+            selectedStyle(curX,curY);
+        }
+    </script>
+</body>
+
+</html>
