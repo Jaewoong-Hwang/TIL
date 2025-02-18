@@ -37,11 +37,11 @@
         compositionstartEl.addEventListener('compositionstart', (e) => {
             console.log('compositionstart', e)
             console.log('compositionstart', e.target.value)
-            console.log('compositionstart', e.data)
+           
             p2El.innerHTML = e.data;
         })
         //compositionupdate     :   한글 조합 중 발생(현재 조합 상태를 확인)
-        const compositionupdateEl = document.querySelector('#input3')
+        const compositionupdateEl = document.querySelector('#input3')               //받아쓰기 게임 등 그런 곳에 쓰면 좋음
         const p3El = document.querySelector('#p3')
         compositionupdateEl.addEventListener('compositionupdate', (e) => {
             console.log('compositionupdate', e)
@@ -56,9 +56,12 @@
         compositionendEl.addEventListener('compositionend', (e) => {
             console.log('compositionend', e)
             console.log('compositionend', e.target.value)
-            console.log('compositionend', e.data)
+           
             p4El.innerHTML = e.data;
         })
+
+
+
 
     </script>
 </body>

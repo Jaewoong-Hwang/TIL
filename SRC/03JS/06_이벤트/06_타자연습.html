@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .container {
+            width: 800px;
+            margin: 100px auto;
+        }
+
+        .container * {
+            margin-bottom: 20px;
+        }
+
+        .container>h1 {
+            text-align: center;
+        }
+
+        .container>#target-text {
+            font-size: 1.5rem;
+            text-align: left;
+        }
+
+        .container>input[type="text"] {
+            width: 100%;
+            height: 35px;
+            font-size: 1.2rem;
+        }
+
+        .container>#result {
+            font-size: 1rem;
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+
+    <div class="container">
+        <h1>타자연습</h1>
+        <div id="target-text">묻고 더블로 가!</div>
+        <input type="text" id="input-text" placeholder="위 문장을 입력하세요">
+        <div id="result">입력된 값이 올바른지 여부를 확인하는 부분입니다</div>
+    </div>
+
+    <script>
+        //요소찾기
+        const targetTextEl = document.querySelector('#target-text');
+        const inputEl = document.querySelector('#input-text');
+
+
+        const resultEl = document.querySelector('#result');
+
+        //문장 배열
+        const texts = [
+            "묻고 더블로 가!",
+            "꼭 그렇게 모두 가져가야만 속이 후련했냐",
+            "신에게는 아직 12척의 배가 남아 있사옵니다",
+            "아직 한발 남았다"
+        ]
+        let textsIdx=0;
+
+        //문장 랜덤 배치
+
+
+        //이벤트 처리
+
+
+        //하나씩 확인
+        inputEl.addEventListener('input', (e) => {
+            //일치여부 체크
+
+                const text = texts[textsIdx];
+                
+                
+                //result에 입력한 내용 표시(OK : green, X : red)
+                let resultHTML='';
+                const inputedValue=inputEl.value;
+                // console.log(inputedValue);
+                // console.log(e.data);
+                for(let i=0;i<inputedValue.length;i++){
+                    console.log(i,inputedValue[i]);
+                }
+                
+                //입력한 값의 일치 여부확인
+
+
+        })
+
+
+
+        //조합된 문장 일치여부
+        inputEl.addEventListener('compositionupdate', (e) => { })
+    </script>
+</body>
+
+</html>
