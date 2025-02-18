@@ -139,7 +139,7 @@
             // console.log(inputedValue);
             // console.log(e.data);
             for (let i = 0; i < inputedValue.length; i++) {
-                // console.log(`input ${i}`,inputedValue[i]);
+                // console.log(`input ${i}`,inputedValue[i],'길이',inputedValue.length);
                 if (i >= text.length) {
                     //문장길이가 초과하는 inputedValue
 
@@ -160,10 +160,10 @@
             console.log('전체문자열 길이 : ', text.length, '옳게입력한 개수', validCnt);
             const progressPercent = (validCnt / text.length) * 100;
             const progressIconEl = document.querySelector('#percentage span');
-            if (progressPercent === 100)
+            if (progressPercent !== 100)
                 progressIconEl.style.left = `${progressPercent}%`;
             else
-                progressPercent.style.left = `${progressPercent}% - 25px`;
+                progressIconEl.style.left = `calc(${progressPercent}% - 25px)`;
 
 
 
@@ -190,9 +190,7 @@
                         }
                     }
 
-                    textsIdx= parseInt(Math.random() * 100) % texts.length;
-
-                    console.log('textIdx', textsIdx)
+                   
 
                     targetTextEl.innerHTML = texts[textsIdx];
                     inputEl.value = "";
