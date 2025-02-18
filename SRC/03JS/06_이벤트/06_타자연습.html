@@ -34,6 +34,13 @@
         .container>#result {
             font-size: 1rem;
         }
+        .valid{
+            color: green;
+
+        }
+        .invalid{
+            color: red;
+        }
     </style>
 
 </head>
@@ -85,18 +92,58 @@
                 // console.log(inputedValue);
                 // console.log(e.data);
                 for(let i=0;i<inputedValue.length;i++){
-                    console.log(i,inputedValue[i]);
+                    // console.log(`input ${i}`,inputedValue[i]);
+                    if(i>=text.length){
+                        //문장길이가 초과하는 inputedValue
+                        
+                    }
+                    else if(text[i] !== inputedValue[i]){
+                        resultHTML += `<span class='invalid'>${inputedValue[i]}</span>`
+                    }
+                    else{
+                         resultHTML += `<span class='valid'>${inputedValue[i]}</span>`
+                    }
                 }
+                   
+                 
+
+                resultEl.innerHTML=resultHTML;
                 
-                //입력한 값의 일치 여부확인
+                //문장 전체 일치여부 확인
+                if( text=== inputedValue){
 
 
-        })
+                    inputEl.disabled=true;
+                    //지연시간 ->setTimeout()
+                    setTimeout(()=>{
+                        //문장배열의 길이를 초과하는 경우 다시 0 idx로 설정
+                        textsIdx = (textsIdx+1 >= texts.length) ? 0 : textsIdx+1 ;
+                        console.log('textIdx',textsIdx) 
+
+                        targetTextEl.innerHTML=texts[textsIdx];
+                        inputEl.value="";
+                        resultEl.innerHTML="";
+
+                        inputEl.disabled=false;
+                        inputEl.focus();
+                    },3000);
+
+                    
+                }
 
 
 
-        //조합된 문장 일치여부
-        inputEl.addEventListener('compositionupdate', (e) => { })
+        });
+
+
+
+        // //조합된 문장전체 일치여부
+        // inputEl.addEventListener('compositionupdate', (e) => {
+        //     const inputedValue = inputEl.value;
+        //     console.log('compositionupdate',e.data);
+        //     console.log('compositionupdate',inputedValue);
+        //  })
+        
     </script>
 </body>
 
