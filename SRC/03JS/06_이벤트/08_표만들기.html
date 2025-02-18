@@ -36,40 +36,6 @@
     </table>
 
 
-    <!-- <script>
-        function makemap() {
-            let row = parseInt(document.getElementById("rownum").value);
-            let col = parseInt(document.getElementById("colnum").value);
-
-            if (isNaN(row) || isNaN(col) || row <= 0 || col <= 0) {
-                alert("올바른 숫자를 입력하세요!");
-                return;
-            }
-
-            const tableBody = document.querySelector("#tbl tbody");
-            tableBody.innerHTML = "";
-
-            for (let i = 0; i < row; i++) {
-                let rowEl = document.createElement("tr");
-
-                for (let j = 0; j < col; j++) {
-                    let colEl = document.createElement("td");
-                    let inputEl = document.createElement("input");
-                    colEl.appendChild(inputEl);
-                    rowEl.appendChild(colEl);
-                }
-
-                tableBody.appendChild(rowEl);
-            }
-
-        } -->
-
-        <!-- // document.getElementById("createTableBtn").addEventListener("click", makemap);
- -->
-
-
-
-
     </script>
 
 
@@ -78,13 +44,24 @@
         //State
         let curX = 0;
         let curY = 0;
-
+        let selectedNode = null;
         //
-        const selectedStyle=(xPos,yPos)=>{
-            const selectedEl=document.getElementById(`${xPos}|${yPos}`);
-            selectedEl.style.backgroundColor='gray';
-        }
+        const selectedStyle = (xPos, yPos) => {
+            console.log(xPos, yPos);
+            if (selectedNode) {
+                //이전에 선택된 노드가 있는 경우
+                deselectedStyle(selectedNode);
+            }
+            //이전에 선택된 노드가 있는 경우
+            selectedNode = document.getElementById(`${xPos}|${yPos}`);
+            selectedNode.style.backgroundColor = 'gray';
 
+
+        }
+        const deselectedStyle = (node) => {
+            node.style.backgroundColor = 'white';
+
+        }
         const makemap = () => {
             const row = document.querySelector('#rownum').value;
             const col = document.querySelector('#colnum').value;
@@ -92,20 +69,30 @@
 
 
             //기존의 있던 테이블 삭제
-            while(tbodyEl.firstChild){
+            while (tbodyEl.firstChild) {
                 tbodyEl.removeChild(tbodyEl.firstChild)
             }
 
             console.log('row', row, 'col', col);
-            for(let i=0; i<row; i++){
-                const trEl=document.createElement('tr');
+            for (let i = 0; i < row; i++) {
+                const trEl = document.createElement('tr');
 
-                for(let j=0; j<col; j++){
+                for (let j = 0; j < col; j++) {
                     const tdEl = document.createElement('td');
-                    tdEl.innerHTML=`(${i},${j})`;
+
+                    //클릭이벤트 넣기
+                    tdEl.addEventListener('click', (e) => {
+                        console.log('클릭node', tdEl);
+                        const id = tdEl.getAttribute('id');
+
+                        const xPos = id.split('|')[0];
+                        const yPos = id.split('|')[1];
+                        selectedStyle(xPos, yPos);
+                    })
+                    tdEl.innerHTML = `(${j},${i})`;
                     // tdEl.setAttribute('data-row',i);
                     // tdEl.setAttribute('data-col',j);
-                    tdEl.setAttribute('id', `${i}|${j}`);
+                    tdEl.setAttribute('id', `${j}|${i}`);
                     trEl.appendChild(tdEl);
                 }
 
@@ -113,10 +100,10 @@
             }
 
             //기본 cur 위치
-            curX = Math.ceil(col/2);
-            curY = Math.ceil(row/2);
+            curX = Math.ceil(col / 2 - 1);
+            curY = Math.ceil(row / 2 - 1);
             //초기 선택된 위치 스타일링
-            selectedStyle(curX,curY);
+            selectedStyle(curX, curY);
         }
     </script>
 </body>
