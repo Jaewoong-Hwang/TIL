@@ -59,7 +59,7 @@
         window.addEventListener('DOMContentLoaded', () => {
 
             //반응처리 함수
-            const flexibleBall = (width,ballEl) => {
+            const flexibleBall = (width, ballEl) => {
                 if (width < 768) {
                     //모바일 처리
                     ballEl.className = 'ball ball-480px';
@@ -76,16 +76,16 @@
             }
             const width = window.innerWidth;
             const ballEl = document.querySelector('.ball');
-            flexibleBall(width,ballEl);
+            flexibleBall(width, ballEl);
 
             window.addEventListener('resize', () => {
-            const width = window.innerWidth;
-            const ballEl = document.querySelector('.ball'); 
-            flexibleBall(width,ballEl);
+                const width = window.innerWidth;
+                const ballEl = document.querySelector('.ball');
+                flexibleBall(width, ballEl);
 
-        })
+            })
 
-       
+
         })
 
 
