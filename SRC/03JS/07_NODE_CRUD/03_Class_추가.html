@@ -42,5 +42,18 @@
     <div class="btn">BUTTON_7</div>
     <div class="btn">BUTTON_8</div>
 
+
+    <script>
+        const btnEls=document.querySelectorAll('.btn');
+        btnEls.forEach((btn,idx)=>{
+            console.log(idx,btn);
+            btn.addEventListener('mouseover',()=>{
+                btn.classList.add(`btn--bg${idx}`);
+            })
+            btn.addEventListener('mouseleave',()=>{
+                btn.classList.remove(`btn--bg${idx}`);
+            })
+        })
+    </script>
 </body>
 </html>
