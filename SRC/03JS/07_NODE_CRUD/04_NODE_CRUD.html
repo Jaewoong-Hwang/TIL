@@ -6,12 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
+    <!-- google icon -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=delete" />
 
     <style>
+        .material-symbols-outlined {
+            font-variation-settings:
+                'FILL' 0,
+                'wght' 300,
+                'GRAD' 0,
+                'opsz' 24
+        }
+    </style>
 
-        .item{
+    
+    
+    <style>
+        .item {
 
-            min-width:300px;
+            min-width: 300px;
             height: 35px;
             border: 1px solid;
             margin: 5px;
@@ -23,16 +37,29 @@
             gap: 10px;
         }
 
-        .item>.left{
+        .item>.left {
             width: calc(100% - 30px);
             height: 100%;
             border: 1px solid;
+
+            display: flex;
+            justify-content: left;
+            align-items: center;
         }
-        .item>.right{
+
+        .item>.right {
             width: 30px;
             height: 100%;
             border: 1px solid;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
+        .item>.right>span{
+            cursor: pointer;
+        }
+        
     </style>
 </head>
 
@@ -45,44 +72,84 @@
     <script>
 
         //DOM LOAD
-        document.addEventListener('DOMContentLoaded',()=>{
+        document.addEventListener('DOMContentLoaded', () => {
 
 
             //요소 검색
-            const inputEl=document.querySelector('.input')
-            const btnEl=document.querySelector('.btn')
-            const containerEl=document.querySelector('.container')
+            const inputEl = document.querySelector('.input')
+            const btnEl = document.querySelector('.btn')
+            const containerEl = document.querySelector('.container')
 
             // 이벤트 처리
-            btnEl.addEventListener('click',()=>{
+            btnEl.addEventListener('click', () => {
                 console.log('clicked');
                 const text = inputEl.value;
                 createNode(text);
-                inputEl.value='';
+                inputEl.value = '';
             });
 
 
             //함수
-            function createNode(text){
+            function createNode(text) {
+
+                //유효성 검사
+                if (!isValid(text)) {
+                    alert("내용을 입력하세요");
+                    return;
+                }
                 // div, >left(text),right(icon)
                 //노드 생성
-                const divEl=document.createElement('div');
-                const leftEl=document.createElement('div');
-                const rightEl=document.createElement('div');
-            
+                const divEl = document.createElement('div');
+                const leftEl = document.createElement('div');
+                const rightEl = document.createElement('div');
+                // <span class="material-symbols-outlined">delete</span>
+                const deleteEl= document.createElement('span');
+                deleteEl.classList.add('material-symbols-outlined');
+                deleteEl.innerHTML='delete';
+
+
+                //데이터 처리
+                leftEl.innerHTML = text;
+
+
+                //휴지통 이벤트 처리
+                deleteEl.addEventListener('click',(e)=>{            
+                    console.log('delete btn click', e.target);      
+                   deleteNode(e.target);        // function deleteNode(btn) --> 여기로 보냄
+                });
+
+
                 //스타일링(class 추가)
                 divEl.classList.add('item');
                 leftEl.classList.add('left');
                 rightEl.classList.add('right');
 
                 //노드 연결
+
+                rightEl.appendChild(deleteEl);
                 divEl.appendChild(leftEl);
                 divEl.appendChild(rightEl);
                 containerEl.appendChild(divEl);
             }
-            function deleteNode(){
-                    
+            function deleteNode(btn) {
 
+                const itemEl = btn.parentNode.parentNode;   //부모의 부모노드
+                    console.log('delete target item..', itemEl);
+                    itemEl.remove();            //삭제
+            }
+            //유효성 체크 함수
+            function isValid(text) {
+                const regex = /^[0-9]/; // 첫문자가 숫자값이 나오는 경우
+                if (text.trim() === '' || text.trim() === null) {
+                    console.error('inValid error', '공백을 입력하면 안됩니다.')
+                    alert("공백을 입력하면 안됩니다.");
+                    return false;
+                } else if (regex.test(text)) {
+                    console.error('inValid error', '첫 문자는 숫자가 들어오면 안됩니다.')
+                    alert("첫 문자는 숫자가 들어오면 안됩니다.");
+                    return false;
+                }
+                return true;
             }
 
 
