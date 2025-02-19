@@ -9,9 +9,30 @@
 
     <style>
 
-        .item{}
-        .item>.left{}
-        .item>.right{}
+        .item{
+
+            min-width:300px;
+            height: 35px;
+            border: 1px solid;
+            margin: 5px;
+            padding: 5px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .item>.left{
+            width: calc(100% - 30px);
+            height: 100%;
+            border: 1px solid;
+        }
+        .item>.right{
+            width: 30px;
+            height: 100%;
+            border: 1px solid;
+        }
     </style>
 </head>
 
