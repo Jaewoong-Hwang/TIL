@@ -33,7 +33,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            ;
+
             gap: 10px;
         }
 
@@ -107,7 +107,7 @@
                 deleteEl.innerHTML = 'delete';
 
                 //노드 속성 추가
-                divEl.setAttribute("draggable",true);
+                divEl.setAttribute("draggable", true);
 
                 //데이터 처리
                 leftEl.innerHTML = text;
@@ -116,22 +116,33 @@
                 deleteEl.addEventListener('click', (e) => {
                     console.log('delete btn clicked..', e.target);
                     deleteNode(e.target);
-                    
+
                 });
                 //이벤트 처리 - 드래그&드랍(dragstart,dragover,drop)
-                divEl.addEventListener('dragstart',(e)=>{
-                    console.log('dragstart',e)
+                divEl.addEventListener('dragstart', (e) => {
+                    console.log('dragstart', e)
                     // console.log('dragstart',e.target)
-                    tmpNode = {"node":e.target,"yPos":e.pageY};
+                    tmpNode = { "node": e.target, "pageY": e.pageY };
                     console.log(tmpNode);
                 });
-                divEl.addEventListener('dragover',(e)=>{
+                divEl.addEventListener('dragover', (e) => {
                     // console.log('dragover',e.target)
                     e.preventDefault();
                 });
-                divEl.addEventListener('drop',(e)=>{
-                    console.log('drop',e)
+                divEl.addEventListener('drop', (e) => {
+                    console.log('drop', e)
                     // console.log('drop',e.target)
+                    // node.before(node2) // node1위에 node2 배치
+                    // node.after(node2) // node1 밑에 node2 배치
+
+                    const curNode = e.target;
+                    const targetedItemNode = curNode.closest('.item'); // 하위노드 -> 상위노드 가장가까운 선택자를 가지는 탐색
+                    console.log('targetedItemNode', targetedItemNode);
+                    if (tmpNode.pageY < e.pageY)
+                        targetedItemNode.after(tmpNode.node);
+                    else
+                        targetedItemNode.before(tmpNode.node);
+
                 });
 
                 //스타일링(class 추가)
