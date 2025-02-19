@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <form action="">
+        <input type="text">
+        <input type="text">
+    </form>
+    <form action="" name="joinForm">
+        <input type="text" name="userid">
+        <input type="text" name="username">
+    </form>
+    <form action="">
+        <input type="text">
+        <input type="text">
+    </form>
+
+        <script>
+            //전체 form 찾기
+            const formEls=document.forms;
+            console.log(formEls);
+
+            //개별 form 접근([index])
+            console.log(formEls[0]);
+            console.log(formEls[1]);
+            console.log(formEls[2]);
+
+            //개별 form 내 자식노드접근 ([index][index])
+            console.log(formEls[0][0]);
+            console.log(formEls[0][1]);
+            formEls[0][0].value='홍길동';
+            formEls[0][1].value='15';
+
+            console.log('--------------');
+            const formEl = document.joinForm;
+            formEl.userid.value='user1234';
+            formEl.username.value='티모';
+        
+        </script>
+</body>
+</html>
