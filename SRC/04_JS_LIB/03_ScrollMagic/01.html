@@ -14,6 +14,7 @@
             border: 1px solid;
             margin-bottom: 20px;
             
+            position: relative;
         }
         .ball{
             width: 100px;
@@ -24,6 +25,16 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            
+            left: 0;
+            top: 0;
+            position: absolute;
+            transition: .5s;
+        }   
+
+        .move{
+            left: calc(100% - 100px);
+            top: calc(100% - 100px);
         }
     </style>
 </head>
@@ -31,10 +42,22 @@
     
     <section></section>
     
-    <section>
+    <section class="scroll-section scroll-spy">
         <div class="ball">BALL</div>
     </section>
    
     <section></section>
+
+    <script>
+        const spyedEl = document.querySelector('.scroll-spy');
+        const ballEl = document.querySelector('.scroll-spy .ball');
+
+        const scrollMaicObj=new ScrollMagic.Scene({
+                                        triggerElement : spyedEl, //감시할 요소 선택
+                                        triggerHook : .5,       //스크롤의 위치값(0-1, 0: 최상단, .5:화면중앙, 1:화면최하단)  //Hook 은 이벤트에 대한 이벤트임 클릭할 때 뭔 다른 짓을 한다던가
+                                })
+                                .setClassToggle(ballEl,'move') //Hook대상 El, 효과적용 class 명
+                                .addTo(new ScrollMagic.Controller());
+    </script>
 </body>
 </html>
