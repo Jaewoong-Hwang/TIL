@@ -48,20 +48,23 @@
         .wrapper>main>section.banner-section>.swiper>.swiper-wrapper>.swiper-slide {
             height: 100%;
         }
-        .banner-section>.swiper .swiper-pagination{}
-        .banner-section>.swiper .swiper-pagination>.swiper-pagination-bullet{
+
+        .banner-section>.swiper .swiper-pagination {}
+
+        .banner-section>.swiper .swiper-pagination>.swiper-pagination-bullet {
             width: 15px;
             height: 15px;
             background-color: orange;
             opacity: .8;
         }
-        .banner-section>.swiper .swiper-pagination>.swiper-pagination-bullet-active{
+
+        .banner-section>.swiper .swiper-pagination>.swiper-pagination-bullet-active {
             background-color: royalblue;
             opacity: 1 !important;
         }
 
         .banner-section>.swiper .swiper-button-prev,
-        .banner-section>.swiper .swiper-button-next{
+        .banner-section>.swiper .swiper-button-next {
             color: white;
             width: 50px;
             height: 50px;
@@ -72,14 +75,42 @@
         }
 
         .banner-section>.swiper .swiper-button-prev::after,
-        .banner-section>.swiper .swiper-button-next::after{
+        .banner-section>.swiper .swiper-button-next::after {
             font-size: 1.3rem;
             font-weight: 800;
         }
-        .banner-section>.swiper .swiper-scrollbar{
+
+        .banner-section>.swiper .swiper-scrollbar {
             background-color: red;
         }
 
+        .multi-slide-banner {
+            height: 300px;
+            border: 1px solid;
+           
+        }
+
+        .multi-slide-banner>.swiper {
+            height: 100%;
+            /* border: 1px solid; */
+          
+        }
+
+        .multi-slide-banner>.swiper>.swiper-wrapper {
+            height: 100%;
+            /* border: 1px solid; */
+           
+        }
+
+        .multi-slide-banner>.swiper>.swiper-wrapper>.swiper-slide {
+            height: 100%;
+            border: 1px solid;
+          
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
     </style>
 </head>
 
@@ -113,6 +144,31 @@
                 </div>
 
             </section>
+
+            <section class="multi-slide-banner">
+                <div class="swiper">
+                    <div class="swiper-wrapper">
+
+                        <div class="swiper-slide">Slide 1</div>
+                        <div class="swiper-slide">Slide 2</div>
+                        <div class="swiper-slide">Slide 3</div>
+                        <div class="swiper-slide">Slide 4</div>
+                        <div class="swiper-slide">Slide 5</div>
+                        <div class="swiper-slide">Slide 6</div>
+                        <div class="swiper-slide">Slide 7</div>
+                        <div class="swiper-slide">Slide 8</div>
+                        <div class="swiper-slide">Slide 9</div>
+                        <div class="swiper-slide">Slide 10</div>
+                        <div class="swiper-slide">Slide 11</div>
+                        <div class="swiper-slide">Slide 12</div>
+
+
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+
+
+                    </div>
+            </section>
         </main>
         <footer></footer>
     </div>
@@ -120,18 +176,20 @@
 
 
     <script>
+
+        //main section
         const swiper_banner = new Swiper('.wrapper>main>section.banner-section>.swiper', {
-           
+
             // Optional parameters
             direction: 'horizontal',
-            autoplay : {
+            autoplay: {
                 delay: 2000,
                 // pauseOnMouseEnter : true,
             },
             loop: true,
-            
-            effect : "slide",   // slide(기본) , fade , scroll , cube , coverflow ,flip 
-            mousewheel: true,
+
+            effect: "slide",   // slide(기본) , fade , scroll , cube , coverflow ,flip 
+            // mousewheel: true,
             // slidesPerView:3,
             // spaceBetween:30,    //사이간격 안 쓰는 게 좋음
             // speed : 300, //애니메이션 전환 속도
@@ -140,8 +198,8 @@
             // If we need pagination
             pagination: {
                 el: '.wrapper>main>section.banner-section .swiper-pagination',
-                clickable : true,
-                type : 'bullets', //bullets(기본), fraction(숫자형), progressbar(진행막대형),
+                clickable: true,
+                type: 'bullets', //bullets(기본), fraction(숫자형), progressbar(진행막대형),
             },
 
             // // Navigation arrows
@@ -154,6 +212,34 @@
             scrollbar: {
                 el: '.swiper-scrollbar',
             },
+        });
+
+        const multi_banner = new Swiper('.multi-slide-banner .swiper', {
+
+            // Optional parameters
+            direction: 'horizontal',
+            autoplay: {
+                delay: 2000,
+                // pauseOnMouseEnter : true,
+            },
+            loop: true,
+
+            effect: "slide",   // slide(기본) , fade , scroll , cube , coverflow ,flip 
+            // mousewheel: true,
+
+            slidesPerView:5,
+            // spaceBetween:30,    //사이간격 안 쓰는 게 좋음
+            // speed : 300, //애니메이션 전환 속도
+            // centeredSlides : true,
+
+    
+            // // Navigation arrows
+            navigation: {
+                nextEl: '.wrapper>main>section.banner-section .swiper-button-next',
+                prevEl: '.wrapper>main>section.banner-section .swiper-button-prev',
+            },
+
+         
         });
     </script>
 </body>
