@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 스크립트 내 코드에서의 동기(약속) : 메인코드라인(메인Thread)대로 코드를 실행 처리
+        // 스크립트 내 코드에서의 비동기 : 메인코드라인(메인Thread)에서 분할된(Worker Thread)에서 독립적으로 코드를 실행 처리
+        // [주의] 스크립트내에서 스레드를 분할처리하는 것은 실제로 스레드가 분할되는것은아니라 그렇게 보이도록(가상) 처리하는것이다
+        // [주의] 자바스크립트는 싱글스레드 방식을 사용,실제로 스레드를 나눌수는 없다
+
+
+        //첫번째 for문이 끝나야 두번째 for문이 끝나는 구조(동기-약속되어있음 , 메인스레드에서 동작)
+        //메인스레드에서의 동작확인
+        for (let i = 0; i < 10; i++) {
+            console.log("Main thread 첫번째 for ...1", i);
+        }
+        consol.log("for1이 끝남")
+
+        //비동기 처리 *스레드를 분할 처리  - (js에서는 실제로는 분할되지는 않음)
+        setTimeout(() => {
+            for (let i = 0; i < 10; i++) {
+                console.log("Async main for...2", i);
+            }
+            consol.log("for2이 끝남")
+        }, 1)
+
+
+
+        for (let i = 0; i < 10; i++) {
+            console.log("main for...3", i);
+        }
+        consol.log("for3이 끝남")
+    </script>
+
+</body>
+
+</html>

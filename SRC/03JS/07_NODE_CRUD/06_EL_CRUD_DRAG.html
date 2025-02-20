@@ -138,7 +138,7 @@
                     const curNode = e.target;
                     const targetedItemNode = curNode.closest('.item'); // 하위노드 -> 상위노드 가장가까운 선택자를 가지는 탐색
                     console.log('targetedItemNode', targetedItemNode);
-                    if (tmpNode.pageY < e.pageY)
+                    if (tmpNode.pageY < e.pageY)                    
                         targetedItemNode.after(tmpNode.node);
                     else
                         targetedItemNode.before(tmpNode.node);

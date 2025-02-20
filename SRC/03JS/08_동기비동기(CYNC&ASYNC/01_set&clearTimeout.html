@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <div class="di"></div>
+    <button onClick="start()">예약실행</button>
+    <button onClick="stop()">예약취소</button>
+
+
+    <script>
+        let id = null;
+        const start=()=>{
+            const d1El=document.querySelector('.d1');
+            
+            id = setTimeout(()=>{
+                d1El.innerHTML='setTimeout Result...';
+            },3000);
+
+            console.log('id', id);
+        }
+
+        const stop=()=>{
+            clearTimeout(id);               //예약취소
+        }
+
+    </script>
+</body>
+</html>
