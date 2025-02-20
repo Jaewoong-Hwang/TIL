@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <!-- GOOGLE ICON -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+      }
+    </style>
+
+    <!-- SWIPER CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <style>
+      section:nth-child(1) .swiper {
+        min-height: 720px;
+        position: relative;
+      }
+      section:nth-child(1) .swiper > .swiper-wrapper {
+        height: 100%;
+      }
+      section:nth-child(1) .swiper > .swiper-wrapper > .swiper-slide {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      section:nth-child(1) .swiper-button-next::after,
+      section:nth-child(1) .swiper-button-prev::after {
+        content: "";
+      }
+      section:nth-child(1) .swiper-button-next,
+      section:nth-child(1) .swiper-button-prev {
+        display: block;
+        width: 50px;
+        height: 50px;
+        border: 1px solid;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        background-color: gray;
+        border: 0;
+      }
+      section:nth-child(1) .swiper-button-next > span,
+      section:nth-child(1) .swiper-button-prev > span {
+        font-size: 1.8rem;
+        color: white;
+        font-weight: 100;
+      }
+
+      section:nth-child(1) .swiper-pagination-bullet {
+        width: 15px;
+        height: 15px;
+        border: 1px solid;
+        border-radius: 15px !important;
+        transition: 0.3s;
+      }
+
+      section:nth-child(1) .swiper-pagination-bullet-active {
+        background-color: orange;
+       
+      }
+
+      /* MULTISLIDER */
+      section:nth-child(2) .swiper {
+        height: 500px;
+        display: flex;
+        align-items: center;
+      }
+
+      section:nth-child(2) .swiper > .swiper-wrapper {
+        height: 400px;
+        /* border: 1px solid; */
+        display: flex;
+        align-items: center;
+      }
+      section:nth-child(2) .swiper > .swiper-wrapper > .swiper-slide {
+        border: 1px solid;
+        width: 250px;
+        height: 250px;
+        position:relative;
+        background-color: white;
+        transition: .3s;
+      }
+      section:nth-child(2) .swiper > .swiper-wrapper > .swiper-slide > a {
+        display: block;
+        width: 100%;
+        height: 100%;
+      
+      }
+      section:nth-child(2) .swiper > .swiper-wrapper > .swiper-slide > a > img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+      section:nth-child(2) .swiper-slide-active{
+        transform: scale(1.5);
+        z-index : 2;
+      }
+      section:nth-child(2) .swiper-slide-prev{
+        transform: scale(1.2);
+        z-index : 1;
+      }
+      section:nth-child(2) .swiper-slide-next{
+        transform: scale(1.2);
+        z-index : 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header></header>
+      <main>
+        <section>
+          <!-- Slider main container -->
+          <div class="swiper">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+              <!-- Slides -->
+              <div class="swiper-slide"><img src="./images/curri_01.jpg" /></div>
+              <div class="swiper-slide"><img src="./images/curri_02.jpg" /></div>
+              <div class="swiper-slide"><img src="./images/curri_03.jpg" /></div>
+              <div class="swiper-slide"><img src="./images/curri_04.jpg" /></div>
+              <div class="swiper-slide"><img src="./images/curri_05.jpg" /></div>
+            </div>
+            <!-- If we need pagination -->
+            <div class="swiper-pagination"></div>
+
+            <!-- If we need navigation buttons -->
+            <div class="swiper-button-prev">
+              <span class="material-symbols-outlined">arrow_left_alt</span>
+            </div>
+            <div class="swiper-button-next">
+              <span class="material-symbols-outlined">arrow_right_alt</span>
+            </div>
+
+            <!-- If we need scrollbar -->
+            <div class="swiper-scrollbar"></div>
+          </div>
+        </section>
+
+        <!-- MULTISLIDER -->
+        <section>
+          <!-- Slider main container -->
+          <div class="swiper">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+              <!-- Slides -->
+              <div class="swiper-slide">
+                <a href="javascript:void(0)"><img src="" alt="" /></a>
+              </div>
+              <div class="swiper-slide">
+                <a href="javascript:void(0)"><img src="" alt="" /></a>
+              </div>
+              <div class="swiper-slide">
+                <a href="javascript:void(0)"><img src="" alt="" /></a>
+              </div>
+              <div class="swiper-slide">
+                <a href="javascript:void(0)"><img src="" alt="" /></a>
+              </div>
+              <div class="swiper-slide">
+                <a href="javascript:void(0)"><img src="" alt="" /></a>
+              </div>
+              <div class="swiper-slide">
+                <a href="javascript:void(0)"><img src="" alt="" /></a>
+              </div>
+              <div class="swiper-slide">
+                <a href="javascript:void(0)"><img src="" alt="" /></a>
+              </div>
+              <div class="swiper-slide">
+                <a href="javascript:void(0)"><img src="" alt="" /></a>
+              </div>
+              <div class="swiper-slide">
+                <a href="javascript:void(0)"><img src="" alt="" /></a>
+              </div>
+              <div class="swiper-slide">
+                <a href="javascript:void(0)"><img src="" alt="" /></a>
+              </div>
+              <div class="swiper-slide">
+                <a href="javascript:void(0)"><img src="" alt="" /></a>
+              </div>
+              <div class="swiper-slide">
+                <a href="javascript:void(0)"><img src="" alt="" /></a>
+              </div>
+              <div class="swiper-slide">
+                <a href="javascript:void(0)"><img src="" alt="" /></a>
+              </div>
+              <div class="swiper-slide">
+                <a href="javascript:void(0)"><img src="" alt="" /></a>
+              </div>
+              <div class="swiper-slide">
+                <a href="javascript:void(0)"><img src="" alt="" /></a>
+              </div>
+            </div>
+            <!-- If we need pagination -->
+            <div class="swiper-pagination"></div>
+
+            <!-- If we need navigation buttons -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+
+            <!-- If we need scrollbar -->
+            <div class="swiper-scrollbar"></div>
+          </div>
+        </section>
+      </main>
+      <footer></footer>
+    </div>
+
+    <script>
+      //수평배치 슬라이더
+      const swiper_01 = new Swiper("section:nth-child(1) .swiper", {
+        //방향
+        direction: "horizontal",
+        //자동동작
+        autoplay: {
+          delay: 5000,
+          pauseOnMouseEnter: true,
+        },
+        //무한동작
+        loop: true,
+        //페이징처리
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: "true",
+          type: "bullets", // fraction, progressbar, bullets
+        },
+        //next,prev
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        mousewheel: true,
+        effect: "fade", //fade,scroll
+      });
+
+      // MULTISLIDE
+      const slide_02 = new Swiper("section:nth-child(2) .swiper", {
+        direction: "horizontal",
+        autoplay: {
+          delay: 1000,
+          disableOnInteraction: false,
+        },
+        loop: true,
+        slidesPerView: 4,
+        centeredSlides: true,
+
+        //next,prev
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        mousewheel: false,
+      });
+
+      //마우스 hover시 autoplay stop
+      const section_02_swiper = document.querySelector('section:nth-child(2) .swiper')
+      section_02_swiper.addEventListener('mouseover',()=>{
+        slide_02.autoplay.stop();
+      })
+      section_02_swiper.addEventListener('mouseleave',()=>{
+        slide_02.autoplay.start();
+      })
+      
+      //
+      let allSwiperSilder = document.querySelectorAll('section:nth-child(2) .swiper .swiper-slide')//배열OBJECT반환
+      allSwiperSilder = Array.from(allSwiperSilder)
+      allSwiperSilder.forEach(item=>{
+
+          item.addEventListener('click',()=>{
+              let idx = -1
+              if(!item.classList.contains('swiper-slide-active')){
+                //클릭한 swiper-slide가 active가 아닌경우
+                  allSwiperSilder.forEach(el=>{
+                    el.classList.remove('swiper-slide-active');
+                    el.classList.remove('swiper-slide-prev')
+                    el.classList.remove('swiper-slide-next')
+                  })
+                  item.classList.add('swiper-slide-active')
+                  idx= Array.from(allSwiperSilder).indexOf(item);
+                  console.log('idx',idx)
+                  if(idx===0){
+                    //슬라이드중 첫번째
+                    allSwiperSilder[allSwiperSilder.length-1].classList.add('swiper-slide-prev')
+                    allSwiperSilder[idx+1].classList.add('swiper-slide-next')
+                  }
+                  else if(idx==allSwiperSilder.length-1){
+                    //슬라이드중 마지막번째
+                    allSwiperSilder[idx-1].classList.add('swiper-slide-prev')
+                    allSwiperSilder[0].classList.add('swiper-slide-next')
+                  }
+                  else{
+                    allSwiperSilder[idx-1].classList.add('swiper-slide-prev')
+                    allSwiperSilder[idx+1].classList.add('swiper-slide-next')
+                  }
+                  slide_02.slideTo(idx);
+              }
+              
+
+              
+            
+          })
+
+
+
+      })
+    </script>
+  </body>
+</html>

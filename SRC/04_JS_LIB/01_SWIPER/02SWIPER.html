@@ -35,6 +35,8 @@
         .wrapper>main>section.banner-section {
             min-height: 720px;
             border: 1px solid;
+            
+            background-color: black;
         }
 
         .wrapper>main>section.banner-section>.swiper {
@@ -54,12 +56,14 @@
         .banner-section>.swiper .swiper-pagination>.swiper-pagination-bullet {
             width: 15px;
             height: 15px;
-            background-color: orange;
-            opacity: .8;
+            background-color: transparent;
+            /* opacity: .8; */
         }
 
         .banner-section>.swiper .swiper-pagination>.swiper-pagination-bullet-active {
-            background-color: royalblue;
+            
+            background-color: orange;
+            
             opacity: 1 !important;
         }
 
@@ -81,31 +85,30 @@
         }
 
         .banner-section>.swiper .swiper-scrollbar {
-            background-color: red;
+            /* background-color:red; */
         }
 
         .multi-slide-banner {
             height: 300px;
             border: 1px solid;
-           
+          
         }
 
         .multi-slide-banner>.swiper {
             height: 100%;
             /* border: 1px solid; */
-          
+         
         }
 
         .multi-slide-banner>.swiper>.swiper-wrapper {
             height: 100%;
             /* border: 1px solid; */
-           
+            
         }
 
         .multi-slide-banner>.swiper>.swiper-wrapper>.swiper-slide {
             height: 100%;
             border: 1px solid;
-          
 
             display: flex;
             justify-content: center;
@@ -148,7 +151,6 @@
             <section class="multi-slide-banner">
                 <div class="swiper">
                     <div class="swiper-wrapper">
-
                         <div class="swiper-slide">Slide 1</div>
                         <div class="swiper-slide">Slide 2</div>
                         <div class="swiper-slide">Slide 3</div>
@@ -161,14 +163,12 @@
                         <div class="swiper-slide">Slide 10</div>
                         <div class="swiper-slide">Slide 11</div>
                         <div class="swiper-slide">Slide 12</div>
-
-
-                        <div class="swiper-button-prev"></div>
-                        <div class="swiper-button-next"></div>
-
-
                     </div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                </div>
             </section>
+
         </main>
         <footer></footer>
     </div>
@@ -177,7 +177,7 @@
 
     <script>
 
-        //main section
+        // main-banner
         const swiper_banner = new Swiper('.wrapper>main>section.banner-section>.swiper', {
 
             // Optional parameters
@@ -188,18 +188,19 @@
             },
             loop: true,
 
-            effect: "slide",   // slide(기본) , fade , scroll , cube , coverflow ,flip 
+            effect: "cube",   // slide(기본) , fade , scroll , cube , coverflow ,flip 
             // mousewheel: true,
+
             // slidesPerView:3,
-            // spaceBetween:30,    //사이간격 안 쓰는 게 좋음
-            // speed : 300, //애니메이션 전환 속도
+            // spaceBetween:30,    // 사이간격
+            // speed :300,         // 애니메이션 전환속도
             // centeredSlides : true,
 
             // If we need pagination
             pagination: {
                 el: '.wrapper>main>section.banner-section .swiper-pagination',
                 clickable: true,
-                type: 'bullets', //bullets(기본), fraction(숫자형), progressbar(진행막대형),
+                type: 'bullets',   //bullets(기본), fraction , progressbar
             },
 
             // // Navigation arrows
@@ -214,13 +215,16 @@
             },
         });
 
-        const multi_banner = new Swiper('.multi-slide-banner .swiper', {
+
+        //
+        const swiper_multi_banner = new Swiper('.multi-slide-banner .swiper', {
 
             // Optional parameters
             direction: 'horizontal',
             autoplay: {
                 delay: 2000,
                 // pauseOnMouseEnter : true,
+                disableOnInteraction: true,
             },
             loop: true,
 
@@ -228,18 +232,16 @@
             // mousewheel: true,
 
             slidesPerView:5,
-            // spaceBetween:30,    //사이간격 안 쓰는 게 좋음
-            // speed : 300, //애니메이션 전환 속도
-            // centeredSlides : true,
+            // spaceBetween:30,    // 사이간격
+            // speed :300,         // 애니메이션 전환속도
+            centeredSlides : true,
 
-    
             // // Navigation arrows
             navigation: {
-                nextEl: '.wrapper>main>section.banner-section .swiper-button-next',
-                prevEl: '.wrapper>main>section.banner-section .swiper-button-prev',
+                nextEl: '.multi-slide-banner .swiper-button-next',
+                prevEl: '.multi-slide-banner .swiper-button-prev',
             },
 
-         
         });
     </script>
 </body>
