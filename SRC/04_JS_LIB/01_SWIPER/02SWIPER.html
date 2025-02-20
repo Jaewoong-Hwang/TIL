@@ -27,6 +27,31 @@
             border: 1px solid;
         }
 
+        .wrapper>header>.top-header {
+            height: 40px;
+            border: 1px solid;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .wrapper>header>.top-header>.left {
+            border: 1px solid;
+            width: 300px;
+            height: 100%;
+        }
+        .wrapper>header>.top-header>.left>.swiper{
+            height: 100%;
+            width: 100%;
+        }
+
+        .wrapper>header>.top-header>.right {
+            border: 1px solid;
+        }
+
+        .wrapper>header>nav {
+            height: calc(100% - 40px);
+        }
+
         .wrapper>main {}
 
         .wrapper>main>section {}
@@ -35,7 +60,7 @@
         .wrapper>main>section.banner-section {
             min-height: 720px;
             border: 1px solid;
-            
+
             background-color: black;
         }
 
@@ -61,9 +86,9 @@
         }
 
         .banner-section>.swiper .swiper-pagination>.swiper-pagination-bullet-active {
-            
+
             background-color: orange;
-            
+
             opacity: 1 !important;
         }
 
@@ -91,19 +116,19 @@
         .multi-slide-banner {
             height: 300px;
             border: 1px solid;
-          
+
         }
 
         .multi-slide-banner>.swiper {
             height: 100%;
             /* border: 1px solid; */
-         
+
         }
 
         .multi-slide-banner>.swiper>.swiper-wrapper {
             height: 100%;
             /* border: 1px solid; */
-            
+
         }
 
         .multi-slide-banner>.swiper>.swiper-wrapper>.swiper-slide {
@@ -120,7 +145,24 @@
 <body>
 
     <div class="wrapper">
-        <header></header>
+        <header>
+            <div class="top-header">
+                <div class="left">
+                    <div class="swiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">[공지] 공지사항1</div>
+                            <div class="swiper-slide">[공지] 공지사항2</div>
+                            <div class="swiper-slide">[공지] 공지사항3</div>
+                            <div class="swiper-slide">[공지] 공지사항4</div>
+                            <div class="swiper-slide">[공지] 공지사항5</div>
+                            <div class="swiper-slide">[공지] 공지사항6</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="right"></div>
+            </div>
+            <nav></nav>
+        </header>
         <main>
             <section class="banner-section">
 
@@ -229,12 +271,12 @@
             loop: true,
 
             effect: "slide",   // slide(기본) , fade , scroll , cube , coverflow ,flip 
-            // mousewheel: true,
+            mousewheel: true,
 
-            slidesPerView:5,
-            // spaceBetween:30,    // 사이간격
-            // speed :300,         // 애니메이션 전환속도
-            centeredSlides : true,
+            // slidesPerView:5,
+            // // spaceBetween:30,    // 사이간격
+            // // speed :300,         // 애니메이션 전환속도
+            // centeredSlides : true,
 
             // // Navigation arrows
             navigation: {
@@ -242,6 +284,21 @@
                 prevEl: '.multi-slide-banner .swiper-button-prev',
             },
 
+        });
+
+        const notice_slider = new Swiper('header>.top-header>.left .swiper', {
+
+            // Optional parameters
+            direction: 'vertical',
+            autoplay: {
+                delay: 2000,
+                // pauseOnMouseEnter : true,
+            },
+            loop: true,
+            effect: "slide",   // slide(기본) , fade , scroll , cube , coverflow ,flip 
+            mousewheel: true,
+            slidesPerView:1,
+          
         });
     </script>
 </body>
