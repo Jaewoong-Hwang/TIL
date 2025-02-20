@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div class="d1"></div>
+    <button onClick="start()">반복실행</button>
+    <button onClick="stop()">반복취소</button>
+
+    <script>
+        let id=null;
+        let cnt=0;
+
+        const start = ()=>{
+            const d1El = document.querySelector('.d1');
+           
+            id = setInterval(()=>{
+                d1El.innerHTML=(++cnt);
+            },1000);
+            console.log('id',id);
+        }
+        const stop = ()=>{
+            clearInterval(id);
+        }
+    </script>
+
+
+</body>
+</html>
