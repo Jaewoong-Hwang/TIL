@@ -1,0 +1,25 @@
+:root{
+    font-size: 16px;
+}
+*{
+    box-sizing: border-box;
+}
+ul{
+    margin: 0; padding: 0;
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+
+.wrapper{}
+
+.wrapper>header{}
+.wrapper>header>.top-header{}
+.wrapper>header>nav{}
+
+.wrapper>header>main{}
+.wrapper>header>main>section{}
+
+.wrapper>footer{}
