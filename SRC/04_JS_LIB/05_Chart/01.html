@@ -90,6 +90,22 @@
         };
 
         let options = {
+            animations:{
+                //line 차트에만 적용됨
+                // tension :{
+                //     duration : 3000,
+                //     easing : 'linear',
+                //     from:1,
+                //     to:0,
+                //     loop: true,
+                // }
+                //bar 에만 적용
+                y : {
+                    duration : 2000,
+                    easing : 'linear',
+                    // loop : true,
+                }
+            },
             scales: {
                 y: {
                     beginAtZero: true,
@@ -104,7 +120,12 @@
                     barPercentage: 1.0,
                     categoryPercentage: 1.0
                 }
+            },
+            onClick : (event,chartEl) =>{
+                console.log('clicked..',chartEl);
             }
+                
+            
 
         };
 
