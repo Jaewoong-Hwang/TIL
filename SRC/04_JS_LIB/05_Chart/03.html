@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,8 +8,114 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="./js/중구맛집.js"> </script>
 </head>
+
 <body>
-    
-    
+
+    <div style="width: 800px; height: 500px; border: 1px solid; margin: 0 auto; ">
+        <canvas id="myChart"></canvas>
+    </div>
+
+    <script>
+
+        console.log('중구맛집', 중구맛집);
+
+        //카테고리 추출(한식,양식,중식 등...), 카테고리별 식당 Cnt
+        function extractDataSet(param) {
+            const total = param.total;
+            console.log('total', total);
+
+            const data = param.data;
+            //음식카테고리 필터
+            const cat = data.map((item) => { return item.FD_CS })
+                .sort((a, b) => { return a.localeCompare(b) })  //==>문자를 받을 때는 a.localeCompare()
+                .reduce((acc, item) => {           //[한식,한식,일식,....] 
+                    if (acc[item] !== undefined)   //item을 확인하고 아무것도 없다면 undefined
+                        acc[item]++;        //
+                    else {
+                        acc[item] = 0;        //
+                    }
+                    return acc;             //최종적으로 return 했을 때는 object임
+                }, {})
+                ;
+            console.log('cat', cat);
+
+            //key, values 따로 분류             //배열형태로
+            const keys = Object.keys(cat);
+            const values = Object.values(cat);
+            console.log('keys', keys);
+            console.log('values', values);
+
+            return {                        //배열은 리턴을 하나만 할 수 있지만 오브젝트로 묶어주면 여러개 가능함
+                "keys": keys,
+                "values": values
+            }
+
+        }
+        function drawChart(title, obj, tag, type,) {
+
+            const ctx = document.getElementById(tag);
+
+            let data = {
+                labels: obj.keys,
+                datasets: [
+
+                    {
+                        label: title,
+                        data: obj.values,
+                        borderWidth: 1,
+                        backgroundColor: [
+                            'red', 'orange', 'yellow', 'green', 'blue', 'navy', 'gray', 'black'
+
+                        ],
+                        // borderColor: [
+                        //     'red', 'orange', 'yellow', 'green', 'blue', 'navy'
+
+                        // ],
+                    },
+
+                ],
+            };
+            let options = {
+
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        //  max: 100,
+                        //  min: 0,
+                         ticks:{
+                            stepsize:2
+                         }
+                    },
+                    // x: {
+                    //     stacked: true,
+                    //     barPercentage: 1.0,
+                    //     categoryPercentage: 1.0
+                    // }
+                },
+                onClick: (event, chartEl) => {
+                    console.log('clicked..', chartEl);
+                }
+
+
+
+            };
+
+            new Chart(ctx, {
+                type: type, //bar(기본형), line(선형), pie, doughnut, bubble, scatter, heatmap
+                data: data,
+                options: options
+
+            });
+
+
+
+        }
+
+
+        const result = extractDataSet(중구맛집);
+        console.log('result', result);
+        drawChart('중구맛집', result, 'myChart', 'pie');
+    </script>
 </body>
+
 </html>
