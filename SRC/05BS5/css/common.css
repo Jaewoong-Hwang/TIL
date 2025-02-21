@@ -50,4 +50,7 @@ a{
     
 }
 
-.wrapper>footer{}
+.wrapper>footer{
+    height: 300px;
+    background-color: darkgray;
+}
