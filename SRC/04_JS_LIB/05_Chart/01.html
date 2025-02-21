@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+    <div style="width: 800px; height: 500px; border: 1px solid;">
+        <canvas id="myChart"></canvas>
+    </div>
+
+
+    <script>
+        const ctx = document.getElementById('myChart');
+
+        let data = {
+            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            datasets: [{
+                label: 'TEST_LABEL',
+                data: [12, 19, 3, 5, 2, 3],
+                borderWidth: 1,
+                backgroundColor: [
+                    'red', 'orange', 'yellow', 'green', 'blue', 'navy'
+
+                ],
+                borderColor:[
+                    'red', 'orange', 'yellow', 'green', 'blue', 'navy'
+
+                ],
+            }]
+        };
+
+        let options = {
+            scales: {
+                y: {
+                     beginAtZero: true,
+                     max: 100,
+                     min: 0,
+                     ticks:{
+                        stepsize:10
+                     }
+                 }
+             }
+            
+        };
+
+        new Chart(ctx, {
+            type: 'bar', //bar(기본형), line(선형), pie, doughnut, bubble, scatter, heatmap
+            data: data,
+            options: options
+
+        });
+    </script>
+
+</body>
+
+</html>
