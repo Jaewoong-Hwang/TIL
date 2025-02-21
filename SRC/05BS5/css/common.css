@@ -1,56 +1,62 @@
 :root{
-    font-size: 16px;
+    font-size : 16px;
 }
 *{
     box-sizing: border-box;
 }
 ul{
-    margin: 0; padding: 0;
-    list-style: none;
+    margin:0;padding :0;
+    list-style : none;
 }
 a{
     text-decoration: none;
-    color: black;
+    color:black;
 }
 
+/*  */
 .wrapper{}
-
+/*  */
 .wrapper>header{}
 .wrapper>header>.top-header{}
 .wrapper>header>nav{}
-
-.wrapper>header>main{}
-.wrapper>header>main>section{}
+/*  */
+.wrapper>main{}
+.wrapper>main>section{}
 
 .wrapper>main>section.banner .carousel-control-prev-icon,
-.wrapper>main>section.banner .carousel-control-next-icon{
+.wrapper>main>section.banner .carousel-control-next-icon
+{
     background-color: darkgray;
-    padding: 25px;
-    font-size: .6rem !important;
+    padding : 25px;
     border-radius: 50%;
-    display: block;
+    font-size : 2rem !important;
+    
     background-image: url('');
+    color:white;
 
-    display: flex;
+    display:flex;
     justify-content: center;
     align-items: center;
+    opacity: 1 !important;
+}
 
-}
 .wrapper>main>section.cards{
-    display: grid;
-    grid-template-columns: repeat(4,1fr);
-    grid-template-rows: repeat(2,1fr);
-    gap: 15px;
-    padding: 15px 0;
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap:15px;
+    padding : 15px 0;
 }
+
 .wrapper>main>section.cards>.card{
     width:100% !important;
-    height: 100%;
-    border: 1px solid;
-    
+    height:100%;
+    border : 1px solid;
+
 }
 
+/*  */
 .wrapper>footer{
-    height: 300px;
-    background-color: darkgray;
+    height : 300px;
+    background-color: darkslategray;
 }

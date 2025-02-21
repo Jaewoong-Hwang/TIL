@@ -12,11 +12,12 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
+
     <!-- css -->
     <link rel="stylesheet" href="./css/common.css">
-
     <!-- js -->
-    <script defer src="./js/common.js"> </script>
+    <script defer src="./js/common.js"></script>
+
 </head>
 
 <body>
@@ -25,7 +26,7 @@
     <div class="wrapper">
         <header>
             <div class="top-header"></div>
-            <nav class="navbar navbar-expand-lg navbar-light bg-success">
+            <nav class="navbar navbar-expand-lg navbar-light bg-success text-white">
                 <div class="container-fluid">
                     <a class="navbar-brand text-white" href="#">Navbar</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -41,35 +42,32 @@
                             <li class="nav-item me-3">
                                 <a class="nav-link text-white" href="#">Link</a>
                             </li>
-                            <li class="nav-item dropdown me-3">
-                                <a class="nav-link dropdown-toggle text-whit" href="#" id="navbarDropdown" role="button"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
+                            <li class="nav-item dropdown  me-3">
+                                <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown"
+                                    role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Dropdown
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item text-white" href="#">Action</a></li>
-                                    <li><a class="dropdown-item text-white" href="#">Another action</a></li>
+                                    <li><a class="dropdown-item" href="#">Action</a></li>
+                                    <li><a class="dropdown-item" href="#">Another action</a></li>
                                     <li>
                                         <hr class="dropdown-divider">
                                     </li>
-                                    <li><a class="dropdown-item text-white" href="#">Something else here</a></li>
+                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
                                 </ul>
                             </li>
-                            <li class="nav-item me-3">
 
-                            </li>
                         </ul>
                         <form class="d-flex me-5">
                             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                             <button class="btn btn-secondary" type="submit">Search</button>
                         </form>
                         <form action="" onsubmit="return false">
-                            <button class="btn btn-primary bg-outline-primary text-white" type="submit" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
+                            <button class="btn btn-outline-light bg-warning text-white" data-bs-toggle="modal" data-bs-target="#loginModal" >Login</button>
                             <a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasLogin" role="button"
                                 aria-controls="offcanvasExample">
                                 Join
                             </a>
-
                         </form>
                     </div>
                 </div>
@@ -83,10 +81,8 @@
         <footer></footer>
     </div>
 
-    <!-- offcanvas join -->
 
-
-
+    <!-- OFFCANVAS JOIN -->
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasLogin" aria-labelledby="offcanvasExampleLabel">
         <div class="offcanvas-header">
             <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
@@ -111,10 +107,9 @@
         </div>
     </div>
 
-
-    <!-- Modal -->
+    <!-- LOGIN MODAL -->
     <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog  modal-dialog-centered">
+        <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
