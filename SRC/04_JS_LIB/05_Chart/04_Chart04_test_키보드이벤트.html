@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script src="./js/dataset/중구맛집.js"></script>
+
+    <script src="./js/가계부.js"></script>
+    <script src="./js/extractApi.js"></script>
+
+
+
+</head>
+
+<body>
+    <style>
+        body {}
+
+        .wrapper {
+            width: 80%;
+            height: 800px;
+            border: 1px solid gray;
+            margin: 50px auto;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        .wrapper>* {
+            width: 500px;
+            height: 500px;
+            border: 1px solid gray;
+        }
+
+        .wrapper>.insert-block {}
+
+        .wrapper>.show-block {}
+    </style>
+    <div class="wrapper">
+        <div class="insert-block">
+            <fieldset>
+                <legend>TEST</legend>
+                <input class="value01">
+            </fieldset>
+            
+            <hr>
+            <fieldset>
+                <legend>수입</legend>
+                <input class="income">
+            </fieldset>
+            <fieldset>
+                <legend>지출</legend>
+                <fieldset>
+                    <legend>식비</legend>
+                    <input class="outcomes">
+                </fieldset>
+                <fieldset>
+                    <legend>교통비</legend>
+                    <input class="outcomes">
+                </fieldset>
+                <fieldset>
+                    <legend>공과금</legend>
+                    <input class="outcomes">
+                </fieldset>
+                <fieldset>
+                    <legend>용돈</legend>
+                    <input class="outcomes">
+                </fieldset>
+                <fieldset>
+                    <legend>제출</legend>
+                    <button class="request_report">제출</button>
+                </fieldset>
+            
+                
+            </fieldset>
+
+        </div>
+        
+        <div class="show-block">
+        
+            <canvas id="myChart"></canvas>
+
+        </div>
+    </div>
+
+    <script>
+
+        // const testFunc=()=>{
+        //     let state
+
+        //     getState = ()=>{return state;}
+        //     setState = (stat)=>{state=stat;}
+
+        //     return {
+        //         get : getState,
+        //         set : setState   
+        //     }
+        // }
+        // const myStateSaved = testFunc();
+        // myStateSaved.set(1010);
+        // console.log(myStateSaved.get())
+
+  
+
+
+        // 테스트 코드
+        const show_block_el = document.querySelector('.show-block');
+        const val01_txt_el = document.querySelector(".value01");
+        val01_txt_el.addEventListener("keydown", function (event) {
+            if (event.keyCode == 13) {
+                if (show_block_el.lastChild != null) {
+                    document.getElementById('myChart').remove();
+                    const canvasEl = document.createElement("canvas");
+                    canvasEl.setAttribute('id', 'myChart');
+                    show_block_el.appendChild(canvasEl);
+                }
+                result1 = extractDataSet(중구맛집.data);
+                console.log("result1", result1);
+                가계부실행('중구맛집', null, 'myChart');
+
+                val01_txt_el.value = '';
+            }
+        })
+
+
+        // 순서
+        // 1 입력
+        // 2 저장object 생성 
+        // 3 
+        / 4
+        //2 저장object 생성  
+        function dataSet_closure()
+        {
+            let dataset={}
+            function setDataset(key,value){
+                dataset[key] = value;
+            }
+            function getDataset(){
+                return dataset;
+            }
+            return{
+                set : setDataset,
+                get : getDataset
+            }
+        }
+        //  UPgrade
+        
+        
+        const request_btn_el = document.querySelector('.request_report');
+        // DataSet 클로저
+        const dataset_closure = dataSet_closure();
+
+        //버튼 눌렀을때 Data값 가져와서 저장 하기
+        request_btn_el.addEventListener('click',function(){
+            console.log('clicked..');
+            //클로저 함수에 income,outcome을 넣기
+            //수입넣기
+            const income_el = document.querySelector(".income");
+            dataset_closure.set('income',income_el.value);
+            //지출넣기
+            const outcomes_els = document.querySelectorAll(".outcomes");
+            const outcomes_list = [
+                outcomes_els[0].value,
+                outcomes_els[1].value,
+                outcomes_els[2].value,
+                outcomes_els[3].value,
+        ]
+            console.log('outcomes_list',outcomes_list);
+            //식비,교통비,공과금,용돈,순으로 넣기
+            dataset_closure.set('outcome',outcomes_list);
+            console.log('dataset_closure.get',dataset_closure.get())
+            //가계부 로딩
+            reload_chart(dataset_closure.get());
+            
+        })
+
+     
+        //
+        function reload_chart(dataset){
+            if (show_block_el.lastChild != null) {
+                    document.getElementById('myChart').remove();
+                    const canvasEl = document.createElement("canvas");
+                    canvasEl.setAttribute('id', 'myChart');
+                    show_block_el.appendChild(canvasEl);
+                }  
+                가계부실행('가계부TEST', dataset, 'myChart');
+        }
+      
+
+
+        //Show-block 
+
+
+
+
+
+
+
+
+    </script>
+
+
+
+</body>
+
+</html>

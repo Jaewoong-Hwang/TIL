@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- bs5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <!-- chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="경찰정지역별범죄발생건수.js"></script>
+
+</head>
+<body>
+    
+    <div style="border:1px solid;width:600px;text-align:center;margin:0 auto;">
+        <div class="title" style="text-align:center;">
+            <h2>범죄대분류별 총 범죄건수</h2>
+        </div>
+        <div style="height:500px;width:500px;padding:15px;margin:10px auto;">
+            <canvas id="myChart1" ></canvas>
+        </div>
+
+    </div>
+
+
+ 
+    <!-- 
+        모달 서브창 범죄대분류별 지역별 그래프 표시용
+     -->
+
+     <!-- Button trigger modal -->
+ <button style="display:none;" type="button " class="btn btn-primary modal_btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+   
+ </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel"></h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" >
+            <div class="subChartBlock" style="width:100%;height:100%;border : 1px solid;position:relative;">
+            </div>
+        </div>
+        <div class="modal-footer">
+ 
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+    <!-- 01 범죄대분류로 만든그래프 -->
+    <script>
+        //------------------------
+        //데이터 추출하기
+        //------------------------
+        console.log(지역별범죄건수);
+
+        //범죄대분류 : 각 지역별 항목 누적합
+        const result =  지역별범죄건수.map(item=>{
+            const {범죄대분류,범죄중분류, ...rest} = item;
+            return {범죄대분류,rest};
+        })
+        .reduce((acc,item)=>{
+            //console.log(item);
+            var values =  Object.values(item.rest);
+            let sum = 0;
+            values.map(num=>sum+=num);
+            //console.log("sum : " + sum);
+
+            if(acc.hasOwnProperty(item.범죄대분류)){
+                acc[item.범죄대분류] += sum;
+            }else{
+                acc[item.범죄대분류] = sum;
+            }
+            return acc;
+        },{})
+        console.log(result);
+        const keys = Object.keys(result);
+        const values = Object.values(result);
+        const colors = [
+            // 강력범죄 - 연한 빨간색
+            '#FFCCCC',
+            // 절도범죄 - 연한 주황색
+            '#FFD699',
+            // 폭력범죄 - 연한 초록색
+            '#CCFFCC',
+            // 지능범죄 - 연한 파란색
+            '#CCE5FF',
+            // 풍속범죄 - 연한 보라색
+            '#E5CCFF',
+            // 특별경제범죄 - 연한 분홍색
+            '#FFCCFF',
+            // 마약범죄 - 연한 갈색
+            '#D2B48C',
+            // 보건범죄 - 연한 시안색
+            '#E0FFFF',
+            // 환경범죄 - 연한 연두색
+            '#CCFFCC',
+            // 교통범죄 - 연한 핑크색
+            '#FFC0CB',
+            // 노동범죄 - 연한 골드색
+            '#FFD700',
+            // 안보범죄 - 연한 은색
+            '#DCDCDC',
+            // 선거범죄 - 연한 황색
+            '#FFFF99',
+            // 병역범죄 - 연한 자주색
+            '#CC99FF',
+            // 기타범죄 - 연한 회색
+            '#C0C0C0'
+        ]
+        console.log(keys);
+        console.log(values);
+
+        //클릭시 표시할 지역별 데이터 셋
+        const result2 =  지역별범죄건수.map(item=>{
+            const {범죄대분류,범죄중분류, ...rest} = item;
+            return {범죄대분류,rest};
+        }).reduce((acc,item)=>{
+            acc[item.범죄대분류] = item.rest;
+            return acc;
+        },{})
+        console.log(result2);
+
+
+        //--------------------------
+        //01 범죄대분류로 만든그래프
+        //--------------------------
+        const 범죄대분류로DrawChart = (keys,values)=>{
+
+        //차트 데이터 
+        var data = {
+                labels : keys,
+                datasets:[{
+                    label:'TEST',
+                    data : values,
+                    backgroundColor:colors,
+                    borderColor:colors,
+                    borderWidth:1
+                }]
+
+        }
+
+        //차트 옵션(범례,x/y축,animation,layout,plugin..)
+        var options = {
+            scales : {
+                y : {
+                    beginAtZero : true,
+                }
+            },
+            onClick:(event,chartEl)=>{
+                //console.log("event",event);
+                
+                const index = chartEl[0].index;
+                const label = data.labels[index];
+                const value = data.datasets[0].data[index]
+                //console.log("index : " ,index);
+                //console.log("label : ", label);
+                //console.log("value : ", value);
+
+                console.log(label,result2[label])
+                
+               const modal_btn = document.querySelector('.modal_btn');
+               //기존 모달본체안의 canvas 삭제
+               const subChartBlock = document.querySelector('.subChartBlock');
+               if(subChartBlock.hasChildNodes()){
+                    subChartBlock.removeChild(subChartBlock.firstChild);
+               }
+               //새로 캔버스 생성 넣기
+               const newCanvas =  document.createElement("canvas");
+               newCanvas.setAttribute('id',"subChart");
+               
+               subChartBlock.appendChild(newCanvas);
+
+            //    //그리기 함수 실행
+            //    subChartDraw()
+                const subkeys = Object.keys(result2[label]);
+                const subvalues = Object.values(result2[label]);
+                console.log('key',subkeys);
+                console.log('value',subvalues);
+                // keys의 개수에 맞는 컬러코드 생성
+                const subcolors = [];
+                for (let i = 0; i < 87; i++) {
+                    const hue = Math.floor(Math.random() * 360); // 색상 범위: 0 ~ 360
+                    const saturation = Math.floor(Math.random() * 31) + 70; // 채도 범위: 70 ~ 100
+                    const lightness = Math.floor(Math.random() * 16) + 70; // 명도 범위: 70 ~ 85
+
+                    const color = `hsl(${hue}, ${saturation}%, ${lightness}%)`;
+                    subcolors.push(color);
+                }
+                console.log(subcolors);
+                subChartDraw(subkeys,subvalues,subcolors)
+
+                const modalTitle = document.querySelector('.modal-title');
+                modalTitle.innerHTML = label;
+            //    //모달버튼 클릭
+                modal_btn.click();
+            }
+        }
+
+        //캔버스 요소 선택
+        var ctx = document.querySelector('#myChart1').getContext('2d');
+        //차트 객체 생성
+
+        var myChart = new Chart(ctx,{
+            type:'doughnut', //bar,line , pie , doughnut, radar, bubble, scatter,    heatmap
+            data:data,
+            options : options
+        })
+        }
+        범죄대분류로DrawChart(keys,values);
+    </script>
+
+
+    
+    <script>
+        //메인차트 클릭시 서브차트 그리기 함수
+        const subChartDraw = (keys,values,colors)=>{
+            //차트 데이터 
+            var data2 = {
+                    labels : keys,
+                    datasets:[{
+                        label:"TOTAL",
+                        data : values,
+                        backgroundColor:colors,
+                        borderColor:colors,
+                        borderWidth:1,
+                    }],
+            };
+            // 차트 옵션(범례, x/y축, animation, layout, plugin 등)
+            var options2 = {
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                    },
+                    y: {
+                        beginAtZero: true,
+                    }
+                },
+                legend: {
+                    display: true, // 범례 표시 여부 설정
+                    position: 'top', // 범례 위치 설정 (top, bottom, left, right)
+                    labels: {
+                        fontColor: 'black', // 범례 라벨 색상 설정
+                        fontSize: 12, // 범례 라벨 글꼴 크기 설정
+                        padding: 20 // 범례 라벨과 범례 사이의 간격 설정
+                    }
+                }
+            };
+
+            //캔버스 요소 선택
+            var ctx = document.querySelector('#subChart').getContext('2d');
+            //차트 객체 생성
+
+            var myChart = new Chart(ctx,{
+                type:'bar', //bar,line , pie , doughnut, radar, bubble, scatter,    heatmap
+                data:data2,
+                options : options2
+            })
+     }
+
+    </script>
+
+</body>
+</html>
