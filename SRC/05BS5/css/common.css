@@ -22,4 +22,19 @@ a{
 .wrapper>header>main{}
 .wrapper>header>main>section{}
 
+.wrapper>main>section.banner .carousel-control-prev-icon,
+.wrapper>main>section.banner .carousel-control-next-icon{
+    background-color: darkgray;
+    padding: 25px;
+    font-size: .6rem !important;
+    border-radius: 50%;
+    display: block;
+    background-image: url('');
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
 .wrapper>footer{}
