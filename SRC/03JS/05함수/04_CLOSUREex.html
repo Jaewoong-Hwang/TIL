@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        function createCounter() {
+            let count = 0; //상태값 보관
+
+            function increment() {  //내부 함수
+                //코드입력(호출될 때마다 count에 1씩 증가)
+                count++;                        //count 증가        
+                console.log('count...', count); //렉시컬 스코프
+                console.dir(increment); //콘솔에서 increment의 클로저 확인
+                return count; //카운트 리턴
+            }
+            return increment; //코드입력(increment 함수를 반환), 함수이름이 리턴되면 만들어진 함수의 위치정보(함수의 메모리주소)가 반환
+        }
+        const counter = createCounter();
+        console.log(counter()); //출력: 1
+        console.log(counter()); //출력: 2
+        console.log(counter()); //출력: 3
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>
